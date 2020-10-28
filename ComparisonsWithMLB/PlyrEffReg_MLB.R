@@ -1,3 +1,6 @@
+#Lee Przybylski
+#10/27/2020
+
 library(Lahman)
 #library(vistime)
 library(plyr)
@@ -9,9 +12,6 @@ library(lme4)
 source("CompFunctions.R")
 hitters <- Batting
 hitters$YR <- hitters$yearID
-#hitters$LGYR <- as.factor(paste(hitters$lgID, hitters$yearID, sep = "."))
-#hitters.lgyr <- ddply(hitters, .(playerID, LGYR), collapse.season)
-#summary(hitters.lgyr)
 #Count each season for each hitter
 ssns.all <- ddply(hitters, .(playerID), season.tab)
 head(ssns.all)
