@@ -25,8 +25,8 @@ for (n in 1:N){
 }
 
 #############
-cutyr <- 1801
-hit.2010 <- hitters[hitters$yearID > cutyr,]
+cutyr <- 1870
+hit <- hitters[hitters$yearID > cutyr,]
 #hit.2010 <- hitters
 Stint <- hit.2010$stint
 Experience <- hit.2010$experience

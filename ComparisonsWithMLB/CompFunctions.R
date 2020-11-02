@@ -29,7 +29,7 @@ comp.bat <- function(d, age = FALSE){
   OPS <- SLG + OBP 
   data.frame(Plyr = d$playerID, YR = d$yearID, LG = d$lgID, TM = d$teamID, G = d$G,PA = PA, AB = d$AB, H=d$H, 
              X2B= d$X2B, X3B = d$X3B, HR= d$HR, BB=d$BB, HBP = d$HBP,SB=d$SB, CS=d$CS,
-             SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS)
+             SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS, experience = d$experience)
   if (age){
     Age <- d$Age
     data.frame(Plyr = d$playerID, YR = d$yearID, LG = d$lgID, TM = d$teamID, G = d$G,PA = PA, AB = d$AB, H=d$H, 
