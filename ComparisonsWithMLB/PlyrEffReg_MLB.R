@@ -26,16 +26,23 @@ for (n in 1:N){
 
 #############
 cutyr <- 1870
+minPA <- 10
 hit <- hitters[hitters$yearID > cutyr,]
 #hit.2010 <- hitters
-Stint <- hit.2010$stint
-Experience <- hit.2010$experience
-hit.2010 <- comp.bat(hit.2010)
-hit.2010$experience <- Experience
-hit.2010$Stint <- Stint
-hit.2010 <- hit.2010[hit.2010$PA >10, ]
-head(hit.2010)
-summary(hit.2010)
+#Stint <- hit.2010$stint
+#Experience <- hit.2010$experience
+hit <- comp.bat(hit)
+head(hit)
+summary(hit)
+hit <- hit[hit.2010$PA >minPA, ]
+hit$Age <- get.age(hit$Plyr, hit$YR)
+hit$scPA <- hit$PA/max(hit$PA)
+#Is Age relevant?
+plot(hit$Age, hit$OPS)
+#Player and Age regression:
+playerage <- lm(OPS ~ Plyr*Age, weights = scPA, data = hit)
+
+summary(hit)
 hit.2010$plyr.yr <- as.factor(paste(hit.2010$Plyr, hit.2010$YR, sep = "."))
 hit.2010$lg.yr <- as.factor(paste(hit.2010$LG, hit.2010$YR, sep = "."))
 ssns.2010 <- ddply(hit.2010, .(Plyr), season.tab)

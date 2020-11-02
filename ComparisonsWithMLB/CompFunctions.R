@@ -19,8 +19,22 @@ collapse.season <- function(d){
              SH=SH, SF=SF, SLG=SLG, OBP=OBP, OPS=OPS)
 }
 
+#Get the age correspoding to a player ID in the Lahman database
+get.age <- function(plyrid, YR){
+  df <- People[People$playerID %in% plyrid,]
+  row.names(df) <- df$playerID
+  j <- 1
+  birthyr <- rep(0, length(plyrid))
+  for (id in plyrid){
+    birthyr[j] <- df[id, "birthYear"]
+    j <- j +1
+  }
+  age <- YR - birthyr
+  return(age)
+}
+
 #This is designed to work with the Lahman batting data
-comp.bat <- function(d, age = FALSE){
+comp.bat <- function(d){
   PA <- rowSums(d[,c("AB", "BB", "HBP", "SF")], na.rm = TRUE)
   OBP <- rowSums(d[,c("H", "BB", "HBP")], na.rm = TRUE)/PA
   TB <- d$H + d$X2B + 2*d$X3B + 3*d$HR
@@ -30,12 +44,6 @@ comp.bat <- function(d, age = FALSE){
   data.frame(Plyr = d$playerID, YR = d$yearID, LG = d$lgID, TM = d$teamID, G = d$G,PA = PA, AB = d$AB, H=d$H, 
              X2B= d$X2B, X3B = d$X3B, HR= d$HR, BB=d$BB, HBP = d$HBP,SB=d$SB, CS=d$CS,
              SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS, experience = d$experience)
-  if (age){
-    Age <- d$Age
-    data.frame(Plyr = d$playerID, YR = d$yearID, LG = d$lgID, TM = d$teamID, G = d$G,PA = PA, AB = d$AB, H=d$H, 
-               X2B= d$X2B, X3B = d$X3B, HR= d$HR, BB=d$BB, HBP = d$HBP,SB=d$SB, CS=d$CS,
-               SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS, Age = Age)
-  }
 }
 
 #Find the number of seasons and number of observations for each player in a data frame.  
@@ -92,3 +100,4 @@ F.test.lm=function(lmout,C,d=0){
   pvalue=1-pf(Fstat,dfn,dfd)
   data.frame(Fstat=Fstat,pvalue=pvalue)
 }
+

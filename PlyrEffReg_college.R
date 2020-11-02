@@ -8,10 +8,10 @@ library(lme4)
 library(lmerTest)
 
 source("ComparisonsWithMLB/CompFunctions.R")
-hitters1 <- read.csv("ncaaH.2010-2020_clv1.csv", header = TRUE, sep = ",")
+hitters1 <- read.csv("ComparisonsWithDI/ncaaH.2010-2020_clv1.csv", header = TRUE, sep = ",")
 head(hitters1)
 summary(hitters1)
-hitters2 <- read.csv("SummerH.2010-2019_clv1.csv", header = T, sep = ",")
+hitters2 <- read.csv("ComparisonsWithDI/SummerH.2010-2019_clv1.csv", header = T, sep = ",")
 summary(hitters2)
 names <- c("playerid", "year", "teamName", "leagueName", "lastName", "firstName", "G", "AB", "R", "H", "Dbl", "Tpl", "HR",
            "BB", "IBB", "SO", "SH", "SF", "HBP", "SB", "CS", "Age")
