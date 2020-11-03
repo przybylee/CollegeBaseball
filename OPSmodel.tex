@@ -48,23 +48,23 @@ In each model, we want to determine two test statistics, one to represent the di
 \section{The $OPS$ Distribution}\label{subsec : ops}
 $OPS$ stands for on base plus slugging percentage.  It is defined as
 \[OPS :=\frac{H+BB+HBP}{AB+BB+HBP+SF} +\frac{TB}{AB}.\]
-Just as its name suggests, this is on base percentage ($OBP$)  plus slugging percentage ($SLUG$).  We refer to any plate appearance counted as an at-bat, base on balls, hit by pitch, or sacrifice fly as a batter's attempt.  Sacrifice bunts do not count as batter's attempts.  Let $n$ equal the number of attempts, so $n = AB+BB+HBP+SF$.  Given a batter playing a season in a given league, we define the following parameters: $p_w$ equals the probability that a single batter's attempt results in a walk or a hit by pitch, $p_j\:\: (j = 1,2,3,4)$ is the probability that a single batter's attempt results in a hit that advances the batter to the $j$th base,  ($p_1$ is the probability the batter hits a single etc.), and $p_B= p_1+p_2+p_3+p_4+p_w$.  We let $p_0$ denote the probabilty that a player's plate appearance results in an at bat but not a hit.  This would include grounding out or reaching base by a fielding error.  We have 
+Just as its name suggests, this is on base percentage ($OBP$)  plus slugging percentage ($SLUG$).  We refer to any plate appearance counted as an at-bat, base on balls, hit by pitch, or sacrifice fly as a batter's attempt.  Sacrifice bunts do not count as batter's attempts.  Let $n$ equal the number of attempts, so $n = AB+BB+HBP+SF$.  Given a batter playing a season in a given league, we define the following parameters: $p_w$ equals the probability that a single batter's attempt results in a walk or a hit by pitch, $p_j\:\: (j = 1,2,3,4)$ is the probability that a single batter's attempt results in a hit that advances the batter to the $j$th base,  ($p_1$ is the probability the batter hits a single etc.), and $p_B= p_1+p_2+p_3+p_4+p_w$.  We let $p_0$ denote the probabilty that a player's plate appearance results in an at bat but not a hit.  This would include strikeouts, ground outs, and reaching base by a fielding error.  Finally, we let $p_s$ denote the probability that a player's plate appearnce results in a sacrifice fly or sacrifice hit.  These instances do not count as at-bats.  We have 
 \[p_s+p_w+p_0+p_1+p_2+p_3+p_4 = 1\]
 so our model has six parameters, $\pmb\theta = (p_s,p_w,p_1,,p_2,p_3,p_4)'$.  These are readilly estimated using the standard statistics for a hitter in a given season.  For example, $\hat{p}_w = \frac{BB+HBP}{n}$, $\hat{p}_s = \frac{SF + SH}{n}$, etc.  According the model,
 \[ \Exp[OBP] = \Exp\left[\frac{H+BB+HBP}{n}\right]= {p}_B\]
 so $OBP=\hat{p}_B$ is an estimator of of $p_B$.  We also have
 \[\text{Var}[OBP] = \frac{p_B(1-p_B)}{n}.\] 
-We can model $TB$ as a multinomial distribution, meaning a sum of $n$ i.i.d. trials of $A_j$ such that $P[A = j] = p_j$ for $j = 1,2,3,4$ as defined above.  Since 
+We can model $TB$ as a multinomial distribution, meaning a sum of $n$ i.i.d. trials of $A_j$ such that $P[A = j] = p_j$ for $j = 0,1,2,3,4$ as defined above.  Since 
 \[\Exp[A_j] = p_1+2p_2+3p_3+4p_4.\]
 we get $TB= n\hat{p}_1 + 2n\hat{p}_2+3np_3+4n\hat{p}_4$ and 
 \[\Exp[TB] = np_1+2np_2+3np_3+4np_4.\]
 Since $AB = n(1-\hat{p}_w-\hat{p}_s)$, we find that 
-\[SLUG = \frac{n(\hat{p}_1+2\hat{p}_2+3\hat{p}_3+4\hat{p}_4)}{n(1-\hat{p}_w-\hat{p}_s)}=\frac{\hat{p}_1+2\hat{p}_2+3\hat{p}_3+4\hat{p}_4}{1-\hat{p}_w-\hat{p}_s}.\]
+\[SLUG = \frac{n(\hat{p}_1+2\hat{p}_2+3\hat{p}_3+4\hat{p}_4)}{n(1-\hat{p}_w)}=\frac{\hat{p}_1+2\hat{p}_2+3\hat{p}_3+4\hat{p}_4}{1-\hat{p}_w-\hat{p}_s}.\]
 Putting everything together, 
 \[OPS = \hat{p}_w+\hat{p}_1 + \hat{p}_2+\hat{p}_3+\hat{p}_4+\frac{\hat{p}_1+2\hat{p}_2+\hat{p}_3+\hat{p}_4}{1-\hat{p}_w-\hat{p}_s}.\]
 Using Taylor's theorem, we can show that 
 \begin{equation}\label{eq : expOPS}
-\Exp[OPS] \approx  p_w+p_1 + p_2+p_3+p_4+\frac{p_1+2p_2+p_3+p_4}{1-p_w-p_s}
+\Exp[OPS] \approx  p_w+p_1 + p_2+p_3+p_4+\frac{p_1+2p_2+3p_3+p_4}{1-p_w-p_s}
 \end{equation}
 and
 \begin{equation}\label{eq : varOPS}
@@ -102,7 +102,13 @@ p_s(1-p_s) & -p_sp_w& -p_sp_1 & -p_sp_2 & -p_s p_3& -p_s p_4\\[0.5em]
 &&&& p_3(1-p_3) & -p_3p_4\\[0.5em]
 &&&&&p_4(1-p_4)\\
 \end{bmatrix}\]
-From (\ref{eq : varOPS}), this suggests that $\var[OPS] \le\frac{\sigma^2}{n}$ for some $\sigma^2>0$. \\
+From (\ref{eq : varOPS}), this suggests that $\var[OPS] =\frac{\sigma^2}{n}$ for some $\sigma^2>0$. \\
+
+\section{Linear Model Selection}
+In this section, we consider a series of linear models to estimate the true mean of $OPS$ for a given player in a given league.  Our models assume there is a portion of the mean that is attributed to the player and another portion of the mean that results from the players environment.  Estimates of the term that is unique for the player give us an estimate of the player's talent.  Due to the theoretical result in the previous section, we will require that the variance is inversely related to the number of plate appearances.
+
+\subsection{Linear Player Age}
+Our first model considers
 
 \section{A Player and League Effects Model}\label{sec : att2}
 

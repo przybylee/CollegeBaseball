@@ -27,40 +27,31 @@ for (n in 1:N){
 #############
 cutyr <- 1870
 minPA <- 10
-hit <- hitters[hitters$yearID > cutyr,]
-#hit.2010 <- hitters
+#hit <- hitters[hitters$yearID > cutyr,]
+hit <- hitters[hitters$yearID >1898 & hitters$yearID <1915,]
 #Stint <- hit.2010$stint
 #Experience <- hit.2010$experience
 hit <- comp.bat(hit)
 head(hit)
 summary(hit)
-hit <- hit[hit.2010$PA >minPA, ]
+hit <- hit[hit$PA >minPA, ]
 hit$Age <- get.age(hit$Plyr, hit$YR)
-hit$scPA <- hit$PA/max(hit$PA)
-#Is Age relevant?
-plot(hit$Age, hit$OPS)
-#Player and Age regression:
-playerage <- lm(OPS ~ Plyr*Age, weights = scPA, data = hit)
-
+hit$PAsc <- hit$PA/max(hit$PA)
 summary(hit)
-hit.2010$plyr.yr <- as.factor(paste(hit.2010$Plyr, hit.2010$YR, sep = "."))
-hit.2010$lg.yr <- as.factor(paste(hit.2010$LG, hit.2010$YR, sep = "."))
-ssns.2010 <- ddply(hit.2010, .(Plyr), season.tab)
-summary(ssns.2010)
+#hit.2010$plyr.yr <- as.factor(paste(hit.2010$Plyr, hit.2010$YR, sep = "."))
+hit$lg.yr <- as.factor(paste(hit$LG, hit$YR, sep = "."))
+ssns <- ddply(hit, .(Plyr), season.tab)
+summary(ssns)
 ############
 #For quadratic reqressions, we remove all players who have less than 3 seasons and fit the model
-roster <- ssns.2010$Plyr[ssns.2010$n.ssns >2]
-hit <- hit.2010
+#roster <- ssns.2010$Plyr[ssns.2010$n.ssns >2]
 head(hit)
 summary(hit)
 t0 <- Sys.time()
-plyr.reg <-lm(OPS ~ Plyr + lg.yr, data = hit, weights = PAsc)
+plyr.reg <-lm(OPS ~ 0 + LG*YR+ Plyr, data = hit, weights = PAsc)
 tf <- Sys.time()
 tf - t0
-summary(plyr.reg)
-anova(plyr.reg)
-sum(is.na(coef(plyr.reg)))
-#X <- model.matrix(MLB.qr)
+
 ##########
 
 ###########
@@ -70,7 +61,8 @@ sum(is.na(coef(plyr.reg)))
 hit1 <- hit
 OPShat <- predict(plyr.reg, newdata = hit1)
 beta <- coef(plyr.reg)
-lgeffs <- beta[grepl("lg.yr", names(beta))]
+#ageslope <- beta[grepl("Age", names(beta))]
+lgeffs <- beta[grepl("LG", names(beta))]
 head(hit)
 head(OPShat)
 lgs <- unique(hit1$LG)
