@@ -33,6 +33,19 @@ get.age <- function(plyrid, YR){
   return(age)
 }
 
+#Get the birthyr for each player in the lahman data
+get.birthyr <- function(plyrid){
+  df <- People[People$playerID %in% plyrid,]
+  row.names(df) <- df$playerID
+  j <- 1
+  birthyr <- rep(0, length(plyrid))
+  for (id in plyrid){
+    birthyr[j] <- df[id, "birthYear"]
+    j <- j +1
+  }
+  return(birthyr)
+}
+
 #This is designed to work with the Lahman batting data
 comp.bat <- function(d){
   PA <- rowSums(d[,c("AB", "BB", "HBP", "SF")], na.rm = TRUE)
@@ -43,20 +56,27 @@ comp.bat <- function(d){
   OPS <- SLG + OBP 
   data.frame(Plyr = d$playerID, YR = d$yearID, LG = d$lgID, TM = d$teamID, G = d$G,PA = PA, AB = d$AB, H=d$H, 
              X2B= d$X2B, X3B = d$X3B, HR= d$HR, BB=d$BB, HBP = d$HBP,SB=d$SB, CS=d$CS,
-             SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS, experience = d$experience)
+             SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS, birth.yr = d$birth.yr)
 }
 
 #Find the number of seasons and number of observations for each player in a data frame.  
 #meant for use with a roster of player ids and 
-season.tab <- function(d, age = FALSE){
+season.tab <- function(d){
   n.obs <- length(d$YR)
   n.ssns <- length(unique(d$YR))
   r.ssn <- min(d$YR)
   data.frame(n.obs = n.obs, n.ssns = n.ssns, r.ssn = r.ssn)
-  #if(age){
-  #  r.age <- min(d$Age)
-  #  data.frame(n.obs = n.obs, n.ssns = n.ssns, r.ssn = r.ssn, r.age = r.age)
-  #}
+}
+
+player.bios <- function(d){
+  n.obs <- length(d$YR)
+  n.ssns <- length(unique(d$YR))
+  r.ssn <- min(d$YR)
+  f.ssn <- max(d$YR)
+  r.lg <- d$LG[d$YR == r.ssn]
+  birth.yr <- d$birth.yr[1]
+  data.frame(n.obs = n.obs, n.ssns = n.ssns, r.ssn = r.ssn,
+             r.lg = r.lg, birth.yr = birth.yr, f.ssn = f.ssn)
 }
 
 #confidence interval for lm

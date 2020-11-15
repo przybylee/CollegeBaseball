@@ -7,6 +7,7 @@ library(lmerTest)
 
 #The full model takes too long to fit, so we run tests using certain 15 year spans
 #Span 1: 1899-1918 The start of the AL
+#Span 2: 1899 - 1972
 hit <- hitters[hitters$yearID >1898 & hitters$yearID <1973,]
 #Stint <- hit.2010$stint
 #Experience <- hit.2010$experience
@@ -14,11 +15,10 @@ hit <- comp.bat(hit)
 head(hit)
 summary(hit)
 hit <- hit[hit$PA >minPA, ]
-hit$Age <- get.age(hit$Plyr, hit$YR)
+hit$birth.yr <- get.birthyr(hit$Plyr)
 hit$PAsc <- hit$PA/max(hit$PA)
 hit$YRf <- as.factor(hit$YR)
 summary(hit)
-#hit.2010$plyr.yr <- as.factor(paste(hit.2010$Plyr, hit.2010$YR, sep = "."))
 hit$lg.yr <- as.factor(paste(hit$LG, hit$YR, sep = "."))
 ssns <- ddply(hit, .(Plyr), season.tab)
 summary(ssns)
@@ -27,6 +27,8 @@ summary(ssns)
 #roster <- ssns.2010$Plyr[ssns.2010$n.ssns >2]
 head(hit)
 summary(hit)
+#hit <- na.omit(hit)
+
 t0 <- Sys.time()
 mod.YR <-lm(OPS ~  0 + LG*YR + Plyr, data = hit, weights = PAsc)
 tf <- Sys.time()
@@ -84,8 +86,35 @@ anova(plyr.age1)
 anova(plyr.age2)
 anova(plyr.age3)
 
-hit$Age3 <- hit$Age^3
+########################
+##Random Player Effects:
+summary(hit)
 t0 <- Sys.time()
-plyr.age3 <-lm(OPS ~ 0 + LG + Plyr + Age + Age2+ Age3, data = hit, weights = PAsc)
+mixed1 <-lmer(OPS ~ lg.yr + (1|Plyr), data = hit, weights = PAsc)
 tf <- Sys.time()
-tf - t0
+print(tf - t0)
+summary(mixed1)
+fixef(mixed1)
+summary(hit)
+
+#Add an effect for the player's birth year
+t0 <- Sys.time()
+mixed2 <-lmer(OPS ~ 0 + lg.yr + birth.yr + (1|Plyr), data = hit, weights = PAsc)
+tf <- Sys.time()
+print(tf - t0)
+fixef(mixed2)
+fixef(mixed1)
+summary(mixed2)
+
+
+hit$birth.yrf <- as.factor(hit$birth.yr)
+head(hit)
+t0 <- Sys.time()
+mixed3 <-lmer(OPS ~ 0 + lg.yr + birth.yrf + (1|Plyr), data = hit, weights = PAsc)
+tf <- Sys.time()
+print(tf - t0)
+fixef(mixed2)
+fixef(mixed3)
+
+anova(mixed1,mixed3)
+#There is not a significant effect of birth year

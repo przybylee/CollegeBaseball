@@ -105,7 +105,22 @@ p_s(1-p_s) & -p_sp_w& -p_sp_1 & -p_sp_2 & -p_s p_3& -p_s p_4\\[0.5em]
 From (\ref{eq : varOPS}), this suggests that $\var[OPS] =\frac{\sigma^2}{n}$ for some $\sigma^2>0$. \\
 
 \section{Linear Model Selection}
-In this section, we consider a series of linear models to estimate the true mean of $OPS$ for a given player in a given league.  Our models assume there is a portion of the mean that is attributed to the player and another portion of the mean that results from the players environment.  Estimates of the term that is unique for the player give us an estimate of the player's talent.  Due to the theoretical result in the previous section, we will require that the variance is inversely related to the number of plate appearances.
+In this section, we consider a series of linear models to estimate the true mean of $OPS$ for a given player in a given league.  Our models assume there is a portion of the mean that is attributed to the player and another portion of the mean that results from the players environment.  Estimates of the term that is unique for the player give us an estimate of the player's talent.  Due to the theoretical result in the previous section, we suspect that the variance is inversely related to the number of plate appearances.  We find in practice that this is not exactly the case.  To illustrate this, we fit an unweighted model to the Lahman data from 1899 to 1972.  This model is given by
+\begin{equation}\label{eq : unwtd_model}
+OPS_{ijk} = \mu+\rho_i+\lambda_{jk} +\varepsilon_{ijk}, \:\:\varepsilon_{ijk}\sim N(0, \sigma^2).
+\end{equation}
+where $OPS_{ij}$ $OPS$ for player $i$ playing in league $j$ during season $k$.  In our code, we avoid singularities by creating a new factor, \verb|lg.yr| by pasting the name of the league to the season for each observation.  This makes sense since not every league plays in every season.  We then obtain the residuals of model (\ref{eq : unwtd_model}).  We expect that a weighted model will have standard deviation proportional to a power of the number of plate appearances, that is, 
+\[\var[OPS_{ijk}] = PA_{ijk}^{\theta}\sigma^2\]
+for some $\theta <0$.  Equivalently, 
+\[\log(\text{Var}[OPS_{ijk}]) = {\theta}\log(PA_{ijk}) + 2\log(\sigma).\]
+Thus we can estimate $\theta$ by performing a linear regression of the log of the squared residuals of the unweighted model with respect to $\log(PA)$.  When doing this, we notice that a collection of the squared residuals are extremely small.  These are for the instances where we only observe a player once.  With one observation, it is impossible to get a reasonable estimate of the player's effect on $OPS$.  This will also be common in the college baseball data.
+\\\\
+A major problem with (\ref{eq : unwtd_model}) is that for players that have only one observation, the residual is very small.  This is because there many observations of a particular league-year, but only one observation for the player.
+
+Because of how common it is for us to have few observations of a single player, we would like to consider a model with random player effects.  Consider
+\begin{equation}\label{eq : rand_player_model}
+OPS_{ijk} = \mu+\lambda_{jk} + p_i+\varepsilon_{ijk}PA_{ijk}^{-1/2}, \:\:p_i\sim N(0,\sigma^2_p),\:\varepsilon_{ijk}\sim N(0, \sigma^2).
+\end{equation}
 
 \subsection{Linear Player Age}
 Our first model considers
