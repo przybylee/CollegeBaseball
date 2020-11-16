@@ -122,8 +122,237 @@ Because of how common it is for us to have few observations of a single player, 
 OPS_{ijk} = \mu+\lambda_{jk} + p_i+\varepsilon_{ijk}PA_{ijk}^{-1/2}, \:\:p_i\sim N(0,\sigma^2_p),\:\varepsilon_{ijk}\sim N(0, \sigma^2).
 \end{equation}
 
-\subsection{Linear Player Age}
-Our first model considers
+\subsection{League-Year Additive Model 1}
+Our first model is simple because it does not estimate player effects at all.  We only consder an intercept from the league and a slope associated with the year.
+\begin{equation}\label{eq : lg-yr1}
+OPS_{ij} = \lambda_i + \gamma x_j + \varepsilon_{ijk} PA_{ijk}^{-1/2}, \varepsilon_{ijk}\sim N(0,\sigma^2).
+\end{equation}
+The intercept for the $i$th league is represented by $\lambda_i$, and the slope for representing the change in $OPS$ over accross different seasons is represented by $\gamma$.  We fit (\ref{eq : lg-yr1}) using the lahman data in \verb|FitMisedEffModel-MLB.R| as \verb|lm0|.  The computer takes less that 1 second to fit the model.  In the R output, we provide our estimates for the coefficients in \ref{eq : lg-yr1}:
+\begin{verbatim}
+> summary(lm0)
+
+Call:
+lm(formula = OPS ~ LG + YR, data = hit, weights = PAsc)
+
+Weighted Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.24640 -0.06887 -0.03122  0.01558  0.62099 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -0.3770611  0.0268284 -14.055  < 2e-16 ***
+LGAL         0.0344442  0.0037442   9.199  < 2e-16 ***
+LGFL         0.0120713  0.0079737   1.514    0.130    
+LGNA        -0.0079360  0.0079991  -0.992    0.321    
+LGNL         0.0254440  0.0036957   6.885 5.83e-12 ***
+LGPL         0.0828031  0.0108619   7.623 2.50e-14 ***
+LGUA        -0.0506231  0.0127539  -3.969 7.22e-05 ***
+YR           0.0005421  0.0000141  38.451  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.07669 on 72079 degrees of freedom
+Multiple R-squared:  0.03149,	Adjusted R-squared:  0.03139 
+F-statistic: 334.8 on 7 and 72079 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{lg-yr_add-res1.png}
+\caption{\label{fig : lg-yr1res} A residual plot based on the fit of model (\ref{eq : lg-yr1})}
+\end{figure}
+In Figure \ref{fig : lg-yr1res} we plot the residuals resulting in the fit of the model with respect to year.  Notice that there is some sort of non-linear trend in the residual plot.  The magnitude of the residuals also seems to increase sightly in more recent seasons.
+
+\subsection{League-Year-Factor Additive Model}
+Our second model assigns an intercept for each year.  
+\begin{equation}\label{eq : lg-yr2}
+OPS_{ij} = \lambda_i + \gamma_j + \varepsilon_{ijk} PA_{ijk}^{-1/2}, \varepsilon_{ijk}\sim N(0,\sigma^2).
+\end{equation}
+The intercept for the $i$th league is represented by $\lambda_i$, and the intercept for season $j$ is represented by $\gamma_j$.  We fit (\ref{eq : lg-yr2}) using the lahman data in \verb|FitMisedEffModel-MLB.R| as \verb|lm1|.  The computer takes about 2 seconds to fit the model.  Assigning a unique intercept for each season takes care of the non-linear trend in the residuals as we see in figure \ref{fig : lg-yr1res}.  There is still an issue with the magnitude increase in the residuals for more recent seasons.  The residuals also seemed to skew left.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{lg-yr_add-res2.png}
+\caption{\label{fig : lg-yr2res} A residual plot based on the fit of model (\ref{eq : lg-yr2})}
+\end{figure}
+The improved fit between (\ref{eq : lg-yr1}) to (\ref{eq : lg-yr2}) is significant.  We see this in the following anova table:
+\begin{verbatim}
+> anova(lm0,lm1)
+Analysis of Variance Table
+
+Model 1: OPS ~ LG + YR
+Model 2: OPS ~ LG + YRf
+  Res.Df    RSS  Df Sum of Sq      F    Pr(>F)    
+1  72079 423.89                                   
+2  71933 397.96 146    25.939 32.114 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+\end{verbatim}
+
+\subsection{League-Year-Interaction Model}
+The next model allows for interactions between the league and year effects.  This makes sense since each league may not follow the same shape of nonlinear path.  To avoid missing interactions, since not every league plays in every season, we create a new factor called \verb|lg.yr| by pasting together the predictors \verb|LG| and \verb|YR|.
+\begin{equation}\label{eq : lg-yr3}
+OPS_{ij} = \lambda_{ij} + \varepsilon_{ijk} PA_{ijk}^{-1/2}, \varepsilon_{ijk}\sim N(0,\sigma^2).
+\end{equation}
+The intercept for the $i$th league in season $j$ is represented by $\lambda_{ij}$.  We fit (\ref{eq : lg-yr3}) using the lahman data in \verb|FitMisedEffModel-MLB.R| as \verb|lm2|.  The computer takes about 5 seconds to fit the model.  We check the residual plot in figure \ref{fig : lg-yr3res}.  The residuals are still skewed left, and slightly larger for more recent seasons.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{lg-yr_add-res3.png}
+\caption{\label{fig : lg-yr3res} A residual plot based on the fit of model (\ref{eq : lg-yr3})}
+\end{figure}
+We check the quality of fit with anova again.  The improved fit is significant.
+\begin{verbatim}
+Analysis of Variance Table
+
+Model 1: OPS ~ LG + YRf
+Model 2: OPS ~ lg.yr
+  Res.Df    RSS  Df Sum of Sq      F    Pr(>F)    
+1  71933 397.96                                   
+2  71805 395.64 128    2.3106 3.2762 < 2.2e-16 ***
+\end{verbatim}
+
+\subsection{League-Year-Interaction Mixed Model}
+Our first mixed model is similar to (\ref{eq : lg-yr3}), but we add random intercepts for each different player.  
+\begin{equation}\label{eq : mixed1}
+OPS_{ij} = \lambda_{ij} + p_k + \varepsilon_{ijk} PA_{ijk}^{-1/2},\:p_k\sim N(0,\sigma_p),\: \varepsilon_{ijk}\sim N(0,\sigma^2).
+\end{equation}
+The intercept for the $i$th league in season $j$ is represented by $\lambda_{ij}$, and $p_k$ are the normally distributed player effects.  We fit (\ref{eq : mixed1}) using the lahman data in \verb|FitMixedEffModel-MLB.R| as \verb|mixed1|.  The computer takes about 1.5 minutes to fit the model.  We check the residual plot in figure \ref{fig : mixed1res}.  The residuals are still skewed left, but it seems the magnitude of the residuals is fairly consistent accross seasons.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{mixed1res.png}
+\caption{\label{fig : mixed1res} A residual plot based on the fit of model (\ref{eq : mixed1})}
+\end{figure}
+We check the quality of fit using a likelihood ratio test compared to the fit in model (\ref{eq : lg-yr3}).  The improved fit from the addition of random player effects is significant.
+\begin{verbatim}
+Data: hit
+Models:
+lm2: OPS ~ lg.yr
+mixed1: OPS ~ lg.yr + (1 | Plyr)
+        Df    AIC    BIC logLik deviance Chisq Chi Df Pr(>Chisq)    
+lm2    283 -39532 -36932  20049   -40098                            
+mixed1 284 -80831 -78222  40699   -81399 41301      1  < 2.2e-16 ***
+---
+\end{verbatim}
+Another important observation regarding this model is the estimated lg.yr effects that result from from its fit.  Observe in figure \ref{fig : lg.yr_effs_mixed1} how the estimated effects oscillate over time.  A little research could help line up the peaks and valleys with the eras of high offense and defense in the Major leagues.  For example, the peak in the last half of the 1990's could be due to the steroid era.  The blue vertical line is for 1973, the first season of the designated hitter rule, which seems to correspond to a rise in offense.  It is likely that each oscillation could be explained by some significant rule change or technological development.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{lg.yr_effs_mixed1.png}
+\caption{\label{fig : lg.yr_effs_mixed1} A plot of the lg.yr effects estamated by fitting model (\ref{eq : mixed1}).}
+\end{figure}
+
+\subsection{Environment-Birthyr Mixed Model 1}
+Our second mixed model maintains the random player effects and adds a fixed effect in the form of a slope for birth.yr.  The rationale is that the talent of hitters improves from generation to generation due to many factors including a growing talent pool and better health and training.
+\begin{equation}\label{eq : mixed2}
+OPS_{ij} = \lambda_{ij} + \gamma x_{k} +  p_k + \varepsilon_{ijk} PA_{ijk}^{-1/2},\:p_k\sim N(0,\sigma_p),\: \varepsilon_{ijk}\sim N(0,\sigma^2).
+\end{equation}
+The intercept for the $i$th league in season $j$ is represented by $\lambda_{ij}$.  $\gamma$ is the slope associated with the improvement of hitting ability for players over the years.  $x_k$ is the year player $k$ was born.  As before, $p_k$ are the normally distributed player effects.  We fit (\ref{eq : mixed2}) using the lahman data in \verb|FitMixedEffModel-MLB.R| as \verb|mixed2|.  The computer takes about 1.5 minutes to fit the model.  We check the residual plot in figure \ref{fig : mixed2res}.  The residuals are similar to what we saw in the fit of model (\ref{eq : mixed1}).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{mixed2res.png}
+\caption{\label{fig : mixed2res} A residual plot based on the fit of model (\ref{eq : mixed2}).}
+\end{figure}
+We check the quality of fit using a likelihood ratio test compared to the fit in model (\ref{eq : mixed1}).  The improved fit from the addition of birth year is significant.
+\begin{verbatim}
+Data: hit
+Models:
+mixed1: OPS ~ lg.yr + (1 | Plyr)
+mixed2: OPS ~ lg.yr + birth.yr + (1 | Plyr)
+        Df    AIC    BIC logLik deviance  Chisq Chi Df Pr(>Chisq)    
+mixed1 284 -80831 -78222  40699   -81399                             
+mixed2 285 -81300 -78682  40935   -81870 471.43      1  < 2.2e-16 ***
+\end{verbatim}
+
+Our fit gives an estimate of $\hat{\gamma} = 0.0024$.  This suggest that on average, hitting talent is improving over the years.  As in the previous subsection, we plot the lg.yr effects for this model.  See figure \ref{fig : lg.yr_effs_mixed2}.  We continue to see oscillations, but this time there is a general trend downward.  Thus according to this model, players are getting progressively better at hitting over the years, and it is getting harder to maintain a high $OPS$ in major league baseball over time.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{lg.yr_effs_mixed2.png}
+\caption{\label{fig : lg.yr_effs_mixed2} A plot of the lg.yr effects estamated by fitting model (\ref{eq : mixed2}).}
+\end{figure}
+
+\subsection{Environment-Birthyr Mixed Model 2}
+Our third mixed model builds on the previous mixed model by assigning a fixed intercept for each birth.yr.  This is intended to accomodate the fact that the improvement of hitters being born from year to year may not be at a constant rate.
+\begin{equation}\label{eq : mixed3}
+OPS_{ij} = \lambda_{ij} + \gamma_k +  p_k + \varepsilon_{ijkl} PA_{ijkl}^{-1/2},\:p_k\sim N(0,\sigma_p),\: \varepsilon_{ijk}\sim N(0,\sigma^2)
+\end{equation}
+The intercept for the $i$th league in season $j$ is represented by $\lambda_{ij}$.  The intercept associated with the hitting ability for players born the same year as player $k$ is represented by $\gamma_k$.  As before, $p_k$ are the normally distributed player effects.  We fit (\ref{eq : mixed3}) using the lahman data in \verb|FitMixedEffModel-MLB.R| as \verb|mixed3|.  The computer takes about 3 minutes to fit the model.  We check the residual plot in figure \ref{fig : mixed3res}.  The residuals are similar to what we saw in the fit of model (\ref{eq : mixed2}).
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{mixed3res.png}
+\caption{\label{fig : mixed3res} A residual plot based on the fit of model (\ref{eq : mixed2}).}
+\end{figure}
+We check the quality of fit using a likelihood ratio test compared to the fit in model (\ref{eq : mixed2}).  The improved fit obtained by treating birth.yr as a factor is significant.
+\begin{verbatim}
+Data: hit
+Models:
+mixed2: OPS ~ lg.yr + birth.yr + (1 | Plyr)
+mixed3: OPS ~ lg.yr + birth.yrf + (1 | Plyr)
+        Df    AIC    BIC logLik deviance Chisq Chi Df Pr(>Chisq)   
+mixed2 285 -81300 -78682  40935   -81870                           
+mixed3 446 -81194 -77097  41043   -82086 215.5    161   0.002672 **
+\end{verbatim}
+
+For future reference, we save the information on the variance associated with the random effects of this model in the output below:
+\begin{verbatim}
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ Plyr     (Intercept) 0.016152 0.12709 
+ Residual             0.002271 0.04765 
+Number of obs: 72087, groups:  Plyr, 13175
+\end{verbatim}
+
+As in the previous subsection, we plot the lg.yr effects for this model.  See figure \ref{fig : lg.yr_effs_mixed3}.  We see basically the same oscillations and downward trend as in the previous model.  Hence this model agrees wtih the previous mixed model that it is getting harder to maintain a high $OPS$ in major league baseball over the years.  We also present a scatter plot of the estimated birth year effects on $OPS$ in figure \ref{fig : birth.yr_effs_mixed3}.  Notice that there is a general trend of improvement in hitting talent over the years.  The plot also suggests that players born in the years 1998-1999 are amazing hitters.  These estimates are inflated since those young players are only getting chances to play in the MLB because they are so talented.  As the rest of the players born the same year break into the majors, the estimate of talent born that year will regress back to the normal trend.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{lg.yr_effs_mixed3.png}
+\caption{\label{fig : lg.yr_effs_mixed3} A plot of the lg.yr effects estimated by fitting model (\ref{eq : mixed3}).}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{birth.yr_effs_mixed3.png}
+\caption{\label{fig : birth.yr_effs_mixed3} A plot of the birth.yr effects estimated by fitting model (\ref{eq : mixed3}).}
+\end{figure}
+
+
+\subsection{Environment-Birthyr Mixed Model 3}
+Our fourth mixed model builds on the previous mixed model by adding random effects for tm.yr.  This is a factor assigned by pasting together the factors \verb|TM|, and \verb|YR|.  The goal is to account for variance that occurs from players that play on the same team during a given season.  Those observations should be correlated somewhat because they face the same opponents on the same days.
+\begin{equation}\label{eq : mixed4}
+OPS_{ij} = \lambda_{ij} + \gamma_k +  p_k + t_{sj}+ \varepsilon_{ijkl} PA_{ijkl}^{-1/2},\:p_k\sim N(0,\sigma_p),\:t_{sj}\sim N(0,\sigma_t),\: \varepsilon_{ijk}\sim N(0,\sigma^2)
+\end{equation}
+The intercept for the $i$th league in season $j$ is represented by $\lambda_{ij}$.  The intercept associated with the hitting ability for players born the same year as player $k$ is represented by $\gamma_k$.  As before, $p_k$ are the normally distributed player effects.  The $t_{sj}$ represent the random effects for playing on a team $s$ during the $j$th season.  We fit (\ref{eq : mixed4}) using the lahman data in \verb|FitMixedEffModel-MLB.R| as \verb|mixed4|.  The computer takes almost 6 minutes to fit the model.  We check the residual plot in figure \ref{fig : mixed4res}.  The residuals are similar to what we saw in the fit of model (\ref{eq : mixed4}), although the magnitude is uniformly smaller.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{mixed4res.png}
+\caption{\label{fig : mixed3res} A residual plot based on the fit of model (\ref{eq : mixed4}).}
+\end{figure}
+We check the quality of fit using a likelihood ratio test compared to the fit in model (\ref{eq : mixed3}).  The improved fit obtained by adding the tm.yr random effects is significant.
+\begin{verbatim}
+Data: hit
+Models:
+mixed3: OPS ~ lg.yr + birth.yrf + (1 | Plyr)
+mixed4: OPS ~ lg.yr + birth.yrf + (1 | Plyr) + (1 | tm.yr)
+        Df    AIC    BIC logLik deviance  Chisq Chi Df Pr(>Chisq)    
+mixed3 446 -81194 -77097  41043   -82086                             
+mixed4 447 -81602 -77496  41248   -82496 410.46      1  < 2.2e-16 ***
+---
+\end{verbatim}
+
+As in the previous subsection, we plot the lg.yr effects for this model.  See figure \ref{fig : lg.yr_effs_mixed4}.  We see basically the same oscillations and downward trend as in the previous model.  Hence this model agrees wtih the previous mixed model that it is getting harder to maintain a high $OPS$ in major league baseball over the years.  We also present a scatter plot of the estimated birth year effects on $OPS$ in figure \ref{fig : birth.yr_effs_mixed4}.  Again we see that only the best are representing the hitters born during 1998-1999.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{lg.yr_effs_mixed4.png}
+\caption{\label{fig : lg.yr_effs_mixed4} A plot of the lg.yr effects estimated by fitting model (\ref{eq : mixed4}).}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{birth.yr_effs_mixed4.png}
+\caption{\label{fig : birth.yr_effs_mixed4} A plot of the birth.yr effects estimated by fitting model (\ref{eq : mixed4}).}
+\end{figure}
 
 \section{A Player and League Effects Model}\label{sec : att2}
 

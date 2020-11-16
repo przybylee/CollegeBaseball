@@ -64,6 +64,8 @@ comptimes[4] <- (tf - t0)
 #summary(mixed1)
 #anova(mixed1)
 #fixef(mixed1)
+df <- data.frame(cbind(hit$OPS, predict(mixed1), residuals(mixed1)))
+head(df)
 
 #Add an effect for the player's birth year
 t0 <- Sys.time()
@@ -89,7 +91,7 @@ fixef(mixed3)
 
 
 #anova(mixed2,mixed3)
-hit$tm.yr <- as.factor(paste(hit$TM,hit$YR))
+hit$tm.yr <- as.factor(paste(hit$TM,hit$YR, sep = "."))
 head(hit)
 t0 <- Sys.time()
 mixed4 <-lmer(OPS ~ lg.yr + birth.yrf + (1|Plyr) + (1|tm.yr), data = hit, weights = PAsc, REML = FALSE)
@@ -97,22 +99,41 @@ tf <- Sys.time()
 print(tf - t0)
 comptimes[7] <- tf - t0
 
-#Control for age in the model
-head(hit)
-hit$Age <- get.age(hit$Plyr, hit$YR)
-hit$Age2 <- hit$Age^2
+#Try fitting without weights
 t0 <- Sys.time()
-mixed5 <-lmer(OPS ~ lg.yr + birth.yrf + Age2 + (1|Plyr) + (1|tm.yr), 
+mixed5 <-lmer(OPS ~ lg.yr + birth.yrf + (1|Plyr), data = hit, REML = FALSE)
+tf <- Sys.time()
+print(tf - t0)
+
+t0 <- Sys.time()
+mixed6 <-lmer(OPS ~ LG + birth.yrf + Age + Age2 + (1|Plyr) + (1|tm.yr), 
               data = hit, weights = PAsc, REML = FALSE)
 tf <- Sys.time()
 print(tf - t0)
-comptimes[8] <- tf - t0
+
+#Rank Deficient - no Age 
+#This is not the same as mixed5 since birth.yr is not a factor
+#birth.yrf is a significant improvement over birth.yr
+t0 <- Sys.time()
+mixed7 <-lmer(OPS ~ lg.yr + birth.yr + Age + Age2 + (1|Plyr) + (1|tm.yr), 
+              data = hit, weights = PAsc, REML = FALSE)
+tf <- Sys.time()
+print(tf - t0)
+
+#Rank Deficient - no Age
+hit$Agef <- as.factor(hit$Age)
+t0 <- Sys.time()
+mixed8 <-lmer(OPS ~ lg.yr + birth.yrf + Agef + (1|Plyr) + (1|tm.yr), 
+              data = hit, weights = PAsc, REML = FALSE)
+tf <- Sys.time()
+print(tf - t0)
 
 anova(lm0)
 anova(lm1)
 anova(lm2)
 anova(lm3)
 anova(mixed1)
+
 anova(mixed1, lm2)
 anova(mixed2)
 anova(mixed3)
@@ -123,3 +144,28 @@ summary(mixed4)
 
 length(fixef(mixed4))
 length(coefficients(mixed4))
+
+#Some Residiual anlaysis
+model <- mixed5
+residuals <- residuals(model)
+plot(hit$YR, residuals, xlab = "YR")
+abline(h = 0, col = "red")
+#plot residuls against plate appearances
+plot(hit$PA, residuals, xlab = "PA")
+abline(h = 0, col = "red")
+
+#Plot fixed effects model by yr
+lgeffects <- fixef(model)[grepl("lg.yr", names(fixef(model)))]
+head(lgeffects)
+ssns <- as.numeric(substrRight(names(lgeffects), 4))
+head(ssns)
+plot(ssns, lgeffects, xlab = "season", ylab = "lg.yr effect")
+abline(h = 0)
+abline(v = 1973, col = "blue", lty = "dashed")
+
+#Plot fixed birth yr effects 
+birth.effects <- fixef(model)[grepl("birth.yrf", names(fixef(model)))]
+head(birth.effects)
+byrs <- as.numeric(substrRight(names(birth.effects), 4))
+plot(byrs, birth.effects, xlab = "birth year", ylab = "birth.yr effect")
+abline(h = 0)
