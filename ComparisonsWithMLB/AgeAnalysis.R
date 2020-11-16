@@ -1,5 +1,6 @@
 #Lee Przybylski
 #11/13/2020
+#Fit mixed models using birth year and lg.yr effects, but control for age.
 
 library(Lahman)
 #library(vistime)

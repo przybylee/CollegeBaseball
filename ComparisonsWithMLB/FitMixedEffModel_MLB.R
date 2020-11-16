@@ -1,5 +1,8 @@
 #Lee Przybylski
 #11/13/2020
+#Code for fitting at leaset 5 different mixed models using max likelihood.
+#At the end, there is code for obtaining some residual plots, as well as 
+#scatter plots representing the estimates of fixed intercepts in the models.
 
 library(Lahman)
 #library(vistime)
@@ -100,6 +103,7 @@ print(tf - t0)
 comptimes[7] <- tf - t0
 
 #Try fitting without weights
+#The fit is not as good
 t0 <- Sys.time()
 mixed5 <-lmer(OPS ~ lg.yr + birth.yrf + (1|Plyr), data = hit, REML = FALSE)
 tf <- Sys.time()
@@ -153,6 +157,9 @@ abline(h = 0, col = "red")
 #plot residuls against plate appearances
 plot(hit$PA, residuals, xlab = "PA")
 abline(h = 0, col = "red")
+#Plot resiudulas against fitted values
+opshat <- predict(model)
+plot(opshat, residuals)
 
 #Plot fixed effects model by yr
 lgeffects <- fixef(model)[grepl("lg.yr", names(fixef(model)))]
@@ -169,3 +176,30 @@ head(birth.effects)
 byrs <- as.numeric(substrRight(names(birth.effects), 4))
 plot(byrs, birth.effects, xlab = "birth year", ylab = "birth.yr effect")
 abline(h = 0)
+
+#Residual analysis for weights
+usable <- residuals >0.000001
+useable_pa <- hit$PA[usable]
+usable_res <- residuals[usable]
+abs_res <- abs(usable_res)
+plot(log(useable_pa), log(abs_res^2))
+lm_res <- lm(log(abs_res^2)~ log(useable_pa))
+abline(lm_res, col = "red")
+summary(lm_res)
+#Plot sqaured residuals vs PA
+plot(hit$PA, residuals^2)
+inv.PA <- 1/hit$PA
+lm_res <- lm(residuals^2~ 0+inv.PA)
+grid <- 1:800
+inv.grid <- 1/grid
+reshat <- coef(lm_res)[1]*inv.grid
+lines(grid, reshat, col = "red")
+lm_res2 <- lm(residuals^2 ~ 0 + sqrt(inv.PA))
+inv.grid2 <- 1/sqrt(grid)
+reshat2 <- coef(lm_res2)[1]*inv.grid2
+lines(grid, reshat2, col = "green")
+#Compare sqared residuals to Plate appearances
+residuals <- residuals(model)
+sq_res <- residuals^2
+sum(sq_res == 0)
+lm(log(sq_res) ~ log(hit$PA))

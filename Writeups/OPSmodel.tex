@@ -104,6 +104,35 @@ p_s(1-p_s) & -p_sp_w& -p_sp_1 & -p_sp_2 & -p_s p_3& -p_s p_4\\[0.5em]
 \end{bmatrix}\]
 From (\ref{eq : varOPS}), this suggests that $\var[OPS] =\frac{\sigma^2}{n}$ for some $\sigma^2>0$. \\
 
+\subsection{Residuals in the Data}
+To test the theoretical result above, we took $n = 72087$ observations of hitters from the lahman data set in R.  We fit a mixed effects model using maximum likelihood and plot the squared residuals against the number of plate appearances.  The model is
+\begin{equation}\label{eq : res_model}
+OPS_{ijkl} =\mu + \lambda_{ij} + \gamma_{k} + p_k + t_{js} + \varepsilon_{ijkl},\:\:p_k\sim N(0,\sigma_p^2), t_{js}\sim N(\sigma_t^2),\varepsilon_{ijkl}\sim N(0,\sigma^2_{ijkl}),
+\end{equation}
+where the intercepts $\lambda_{ij}$ and $\gamma_k$ represent the effect on $OPS$ playing in the $i$th league during the $j$th season and the effect on $OPS$ of being born the same year as the $k$th hitter.  The random effects $p_k$ and $t_{js}$ are related to the $k$th player and the team $s$ during season $j$.  In figure \ref{fig : sq_res_PA} we plot the squared residuals and two regression function based on $PA^{-1}$ and $PA^{-1/2}$.  It is troubling that the decay in the sqared residuals seems to have a better linear fit with respect to $PA^{-1/2}$.  
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.5]{sq_res_vs_PA.png}
+\caption{\label{fig : sq_res_PA} A plot of the squared residuals based on the fit of the mixed model in \ref{eq : res_model}.  The red curve represents $e = 0.7375 PA^{-1}$.  The green curve represents $e = 0.1532 PA^{-1/2}$.}
+\end{figure}
+More evidence of this phenomenon appears when we do a linear regression on the log of the squared residuals on the log of the number of plate appearnaces.  Since the expected value of our squared residuals is equal to the variance of $\varepsilon_{ijkl}$ according to our model.  We expect from the theoretical argument above that $\sigma^2_{ijkl} = \sigma^2/PA_{ijkl}$.  If we talke the logarithm of both sides, this is equivalent to 
+\[\log\sigma^2_{ijkl} = -1\cdot \log PA_{ijkl} + \log\sigma^2.\]
+Unfortunately, when we take a regression of the log of the squared residuals on the log of the number of plate apperances, our regression coefficient is much closer to $-1/2$ rather than -1.
+\begin{verbatim}
+> residuals <- residuals(model)
+> sq_res <- residuals^2
+> sum(sq_res == 0)
+[1] 0
+> lm(log(sq_res) ~ log(hit$PA))
+
+Call:
+lm(formula = log(sq_res) ~ log(hit$PA))
+
+Coefficients:
+(Intercept)  log(hit$PA)  
+    -3.2442      -0.5102
+   \end{verbatim}
+
 \section{Linear Model Selection}
 In this section, we consider a series of linear models to estimate the true mean of $OPS$ for a given player in a given league.  Our models assume there is a portion of the mean that is attributed to the player and another portion of the mean that results from the players environment.  Estimates of the term that is unique for the player give us an estimate of the player's talent.  Due to the theoretical result in the previous section, we suspect that the variance is inversely related to the number of plate appearances.  We find in practice that this is not exactly the case.  To illustrate this, we fit an unweighted model to the Lahman data from 1899 to 1972.  This model is given by
 \begin{equation}\label{eq : unwtd_model}

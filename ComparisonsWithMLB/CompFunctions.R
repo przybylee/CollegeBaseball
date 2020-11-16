@@ -121,3 +121,7 @@ F.test.lm=function(lmout,C,d=0){
   data.frame(Fstat=Fstat,pvalue=pvalue)
 }
 
+#Extract last n digits from a string
+substrRight <- function(x, n){
+  substr(x, nchar(x)-n+1, nchar(x))
+}
