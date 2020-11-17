@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{afterpage}
+\usepackage{hyperref}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\upn}{^{(n)}}
 \newcommand{\R}{\mathbb{R}}
@@ -133,7 +134,7 @@ Coefficients:
     -3.2442      -0.5102
    \end{verbatim}
 
-\section{Linear Model Selection}
+\section{Linear Model Selection}\label{sec : model_select1}
 In this section, we consider a series of linear models to estimate the true mean of $OPS$ for a given player in a given league.  Our models assume there is a portion of the mean that is attributed to the player and another portion of the mean that results from the players environment.  Estimates of the term that is unique for the player give us an estimate of the player's talent.  Due to the theoretical result in the previous section, we suspect that the variance is inversely related to the number of plate appearances.  We find in practice that this is not exactly the case.  To illustrate this, we fit an unweighted model to the Lahman data from 1899 to 1972.  This model is given by
 \begin{equation}\label{eq : unwtd_model}
 OPS_{ijk} = \mu+\rho_i+\lambda_{jk} +\varepsilon_{ijk}, \:\:\varepsilon_{ijk}\sim N(0, \sigma^2).
@@ -487,5 +488,27 @@ It might be that there are not enough observations in two seasons to accurately 
 \caption{\label{fig : plyrlg_HA2} Year to year comparisons of average hitting ability based on $OPS$ for the seven historical major leagues using model (\ref{eq : model2}).  This fit uses all seasons of Lahman data at once.}
 \end{figure}
 \noindent An interesting observation from figure \ref{fig : plyrlg_HA2} is that it is more common for the difference between leagues to be significant during a given season than for the average talent to change significantly between two seasons.  Perhaps this makes sense since great hitters typically have longer careers than great pitchers.  Great pitchers are not always great for their entire career either.  They might get hurt or the league just figures out how to handle them.  Pitching ability is probably a significant factor in determining the league effects on OPS, so this quantity should be less stable season after season.  You can see how the DH rule produced a significant change in average hitting talent for the AL.  According to the model, if we estimate the average hitting talent in AL 1973 minus the average hitting talent in AL 1972 we get a 95\% confidence interval of (0.0953, 0.1189).
+
+\section{Modeling $OPS$ with College Hitters}
+We now look to design a  linear mixed effects model to predict $OPS$ for the college baseball data provided by the Baseball Cube.  This model should be similar to the models we fit in section  \ref{sec : model_select1} using MLB data from the Lahman data set.  Here we first take the time to describe the college baseball data.  This exploratory work is saved in the script \verb|ExpHittingData.R|.  Our data for college hitters is contained in two spread sheets stored in the folder \verb|ComparisonsWithDI|.  
+
+The first spreadsheet contains data for NCAA Division I hitters.  The NCAA data contains $n_1 = 57859$ observations of 45 variables.  We provide a summary of this data frame in table \ref{tab : cdata_sum}
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllrrr}
+  \hline
+\multicolumn{3}{l}{NCAA}&\multicolumn{3}{r}{Summer}\\
+  \hline
+\#Conferences & \#Teams & Seasons  & \#Leagues & \#Teams & Seasons\\
+\hline
+35 & 310 & 2010 - 2020 & 28  & 409  & 1996-2019\\
+\hline
+\end{tabular}
+\caption{\label{tab : cdata_sum}}
+\end{table}
+
+
+
+
 
 \end{document}
