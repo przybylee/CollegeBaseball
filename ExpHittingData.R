@@ -21,6 +21,8 @@ head(ncaa_zeros)
 unique(ncaa_zeros$leagueName)
 #Store league abreviations
 NCAA_lgs <- data.frame(unique(ncaa0[c("leagueName", "LeagueAbbr")]))
+names(NCAA_lgs) <- c("Conference", "Abbr")
+write.table(NCAA_lgs, file = "NCAA_confs.csv", row.names = FALSE, col.names = TRUE, sep = ",")
 #Remove useless observations and columns
 names <- names(ncaa0)[c(1:5,7:25,30:45)]
 ncaa <- ncaa0[ncaa0$playerid != 0, names]
@@ -249,6 +251,7 @@ head(summer_1$colleges)
 NCAA_schools <- unique(ncaa0[,2:4])
 head(NCAA_schools)
 NCAA_schools <- NCAA_schools[order(NCAA_schools$teamName, NCAA_schools$year),]
+#write.table(NCAA_schools, "DI_schools.csv", row.names = FALSE, col.names = TRUE, sep = ",")
 sample_strs <- unique(summer_1$colleges)[2:11]
 sample2 <- gsub("^.*?>","", sample_strs)
 gsub("\\(.*?(?:\\)|$)", "", sample2)

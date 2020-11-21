@@ -83,11 +83,26 @@ print(tf - t0)
 
 hit$r.ssn.f <- as.factor(hit$r.ssn)
 t0 <- Sys.time()
-mixed5 <-lmer(OPS ~ lg.yr + r.lg*r.ssn.f + (1|Plyr) + (1|tm.yr), data = hit, weights = PAsc, REML = FALSE)
+mixed6 <-lmer(OPS ~ lg.yr + r.lg*r.ssn.f + (1|Plyr) + (1|tm.yr), data = hit, weights = PAsc, REML = FALSE)
 tf <- Sys.time()
 print(tf - t0)
+#This model is rank deficient
 
-anova(mixed1,mixed2)
+t0 <- Sys.time()
+mixed7 <-lmer(OPS ~ lg.yr + r.lg + r.ssn.f + (1|Plyr) + (1|tm.yr), data = hit, weights = PAsc, REML = FALSE)
+tf <- Sys.time()
+print(tf - t0)
+#This model had trouble converging
+
+t0 <- Sys.time()
+mixed8 <-lmer(OPS ~ lg.yr + r.lg + r.ssn.sc + r.lg:r.ssn.sc  + r.lg:I(r.ssn.sc^2)+ (1|Plyr) + (1|tm.yr), 
+              data = hit, weights = PAsc, REML = FALSE)
+tf <- Sys.time()
+print(tf - t0)
+#This is the only model we fit that is better than mixed5
+
+anova(mixed5,mixed8)
+xtable(anova(mixed8))
 
 ###We check residual plots:
 #Some Residiual anlaysis

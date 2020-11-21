@@ -505,7 +505,7 @@ The first spreadsheet contains data for NCAA Division I hitters.  The NCAA data 
 [36] "borndate"      "Place"         "hsname"        "hsplace"       "mlbid"        
 [41] "draft_year"    "draft_Round"   "draft_overall" "Draft_Team"    "X"  
 \end{verbatim}
-For nearly all the observations in NCAA, 57723 out of 57859, the players are given a non-zero player-id number.  The observations with player-id of 0 are useless because the do not include player names.  They could help compute league averages, but do not work for fitting our mixed effects models.  We remove observations with no assigned non-zero player-id.  We use ddply to collect biographical information on the remaining players and store this in the data frame \verb|players_ncaa|.  
+For nearly all the observations in NCAA, 57723 out of 57859, the players are given a non-zero player-id number.  The observations with player-id of 0 are useless because the do not include player names.  They could help compute league averages, but do not work for fitting our mixed effects models.  We remove observations with no assigned non-zero player-id.  We use ddply to collect biographical information on the remaining players and store this in the data frame \verb|players_ncaa|.  We can observe that of the 26632 NCAA hitters we have, only 1035 of them play for multiple schools during their career.   We save players data as \verb|D1_hitter_bios.csv|.  We also save the cleaned up hitting data as \verb|D1Batting_2010-2020.csv|.
 
 In the summer data set, we have 43534 observations, but we immediately remove thos from before 2005 because it is unlikely that there will be any common hitters from the NCAA data which does not begin until 2010.  This leaves us with $n_2 = 42648$ observations of 44 variables.  The variables included in the summer data are:
 \begin{verbatim}
@@ -520,7 +520,7 @@ In the summer data set, we have 43534 observations, but we immediately remove th
 [36] "colleges"       "draft_Year"     "draft_Round"    "draft_overall"  "draft_teamabbr"
 [41] "status"         "teamname"       "CurrentTeam"    "X"  
 \end{verbatim}
-Once the earlier observations are removed we find that there 27856 of these observations include nonzero player id numbers.  22443 of these ids match ids in our collection of NCAA players.  We narrow our focus to only seasons with these players.  To identify these seasons, consider table \ref{tab : ncaa_to_summer}.  Based on this table, we elect to consider only the 2008 and later seasons of the summer data.  It is possible that some of the unidentified hitters in the summer data could be tied to known players.
+Once the earlier observations are removed we find that there 27856 of these observations include nonzero player id numbers.  22443 of these ids match ids in our collection of NCAA players.  We narrow our focus to only seasons with these players.  To identify these seasons, consider table \ref{tab : ncaa_to_summer}.  Based on this table, we elect to consider only the 2008 and later seasons of the summer data.  It is possible that some of the unidentified hitters in the summer data could be tied to known players.  
 \begin{table}[ht]
 \centering
 \begin{tabular}{rr}
@@ -581,6 +581,6 @@ We deal with the unidentified summer hitters by first trying to connect observat
 \caption{\label{tab : arod} This is an example of multiple observations of the same player's name appearing multiple times in one season.}
 \end{table}
 
-
+Looking at the sets of unique players in the NCAA and summer data sets, we found 13341 common players.
 
 \end{document}
