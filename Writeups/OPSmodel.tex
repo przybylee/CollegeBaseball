@@ -492,8 +492,61 @@ It might be that there are not enough observations in two seasons to accurately 
 \section{Modeling $OPS$ with College Hitters}
 We now look to design a  linear mixed effects model to predict $OPS$ for the college baseball data provided by the Baseball Cube.  This model should be similar to the models we fit in section  \ref{sec : model_select1} using MLB data from the Lahman data set.  Here we first take the time to describe the college baseball data.  This exploratory work is saved in the script \verb|ExpHittingData.R|.  Our data for college hitters is contained in two spread sheets stored in the folder \verb|ComparisonsWithDI|.  
 
-The first spreadsheet contains data for NCAA Division I hitters.  The NCAA data contains $n_1 = 57859$ observations of 45 variables.  We provide a summary of this data frame in table \ref{tab : cdata_sum}
-\begin{table}[h!]
+The first spreadsheet contains data for NCAA Division I hitters.  The NCAA data contains $n_1 = 57859$ observations of 45 variables.  We provide a summary of this data frame in table \ref{tab : cdata_sum}.  The variables included in the NCCA data are:
+\begin{verbatim}
+> names(ncaa0)
+ [1] "playerid"      "year"          "teamName"      "LeagueAbbr"    "leagueName"   
+ [6] "Level"         "lastName"      "firstName"     "G"             "AB"           
+[11] "R"             "H"             "Dbl"           "Tpl"           "HR"           
+[16] "RBI"           "SB"            "CS"            "BB"            "IBB"          
+[21] "SO"            "SH"            "SF"            "HBP"           "GDP"          
+[26] "Bavg"          "Slg"           "obp"           "OPS"           "Age"          
+[31] "HT"            "WT"            "Bats"          "Throws"        "posit"        
+[36] "borndate"      "Place"         "hsname"        "hsplace"       "mlbid"        
+[41] "draft_year"    "draft_Round"   "draft_overall" "Draft_Team"    "X"  
+\end{verbatim}
+For nearly all the observations in NCAA, 57723 out of 57859, the players are given a non-zero player-id number.  The observations with player-id of 0 are useless because the do not include player names.  They could help compute league averages, but do not work for fitting our mixed effects models.  We remove observations with no assigned non-zero player-id.  We use ddply to collect biographical information on the remaining players and store this in the data frame \verb|players_ncaa|.  
+
+In the summer data set, we have 43534 observations, but we immediately remove thos from before 2005 because it is unlikely that there will be any common hitters from the NCAA data which does not begin until 2010.  This leaves us with $n_2 = 42648$ observations of 44 variables.  The variables included in the summer data are:
+\begin{verbatim}
+> names(Summer0)
+ [1] "playerid"       "year"           "teamName"       "LeagueName"     "lastname"      
+ [6] "firstname"      "G"              "AB"             "R"              "H"             
+[11] "Dbl"            "Tpl"            "HR"             "RBI"            "SB"            
+[16] "CS"             "BB"             "IBB"            "SO"             "SH"            
+[21] "SF"             "HBP"            "GDP"            "Bavg"           "Slg"           
+[26] "obp"            "OPS"            "Age"            "HT"             "WT"            
+[31] "Bats"           "Throws"         "posit"          "borndate"       "place"         
+[36] "colleges"       "draft_Year"     "draft_Round"    "draft_overall"  "draft_teamabbr"
+[41] "status"         "teamname"       "CurrentTeam"    "X"  
+\end{verbatim}
+Once the earlier observations are removed we find that there 27856 of these observations include nonzero player id numbers.  22443 of these ids match ids in our collection of NCAA players.  We narrow our focus to only seasons with these players.  To identify these seasons, consider table \ref{tab : ncaa_to_summer}.  Based on this table, we elect to consider only the 2008 and later seasons of the summer data.  It is possible that some of the unidentified hitters in the summer data could be tied to known players.
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+Season & \# DI players \\ 
+  \hline
+2006 &   1 \\ 
+  2007 &  22 \\ 
+  2008 &  65 \\ 
+  2009 & 162 \\ 
+  2010 & 2007 \\ 
+  2011 & 1944 \\ 
+  2012 & 1920 \\ 
+  2013 & 1920 \\ 
+  2014 & 2262 \\ 
+  2015 & 2263 \\ 
+  2016 & 2637 \\ 
+  2017 & 2492 \\ 
+  2018 & 2380 \\ 
+  2019 & 2368 \\ 
+   \hline
+\end{tabular}
+\caption{\label{tab : ncaa_to_summer} The number of of players with ids in the NCAA data set that apper during each season of the summer league data.}
+\end{table}
+
+\begin{table}
 \centering
 \begin{tabular}{lllrrr}
   \hline
@@ -504,10 +557,29 @@ The first spreadsheet contains data for NCAA Division I hitters.  The NCAA data 
 35 & 310 & 2010 - 2020 & 28  & 409  & 1996-2019\\
 \hline
 \end{tabular}
-\caption{\label{tab : cdata_sum}}
+\caption{\label{tab : cdata_sum} A summary of the two data frames in the college baseball data.}
 \end{table}
 
+We deal with the unidentified summer hitters by first trying to connect observations from the unidentified summer hitters.  We collect all the unique first and last name combinations of the unidentified players.  For each name, we look at the numer of observations 
 
+\begin{table}[ht]
+\centering
+\begin{tabular}{rllll}
+  \hline
+ Year & Team & League & last name & first name \\ 
+  \hline
+2015 & Geneva Red Wings & New York Collegiate & Rodriguez & Alex \\ 
+ 2017 & Valley Blue Sox & New England Collegiate League & Rodriguez & Alex \\ 
+  2017 & Texarkana Twins & Texas Collegiate League & Rodriguez & Alex \\ 
+  2017 & Concord Athletics & Southern Collegiate League & Rodriguez & Alex \\ 
+ 2017 & Riverside Bulldogs & Southern California League & Rodriguez & Alex \\ 
+ 2018 & North Adams SteepleCats & New England Collegiate League & Rodriguez & Alex \\ 
+  2018 & Savannah Bananas & Coastal Plain League & Rodriguez & Alex \\ 
+  2018 & Academy Barons & California Collegiate League & Rodriguez & Alex \\ 
+   \hline
+\end{tabular}
+\caption{\label{tab : arod} This is an example of multiple observations of the same player's name appearing multiple times in one season.}
+\end{table}
 
 
 

@@ -90,7 +90,7 @@ college.bios <- function(d){
   Place <- d$Place[1]; Bats <- d$Bats[1]; Throws = d$Throws[1]
   posit <- d$posit[1]; draft.yr <- d$draft_year[1]
   draft.rd <- d$draft_Round[1]; draft.overall <- d$draft_overall[1];
-  draft.tm <- d$Draft_Team ;
+  draft.tm <- d$Draft_Team[1] ;
   data.frame(n.obs = n.obs, n.ssns = n.ssns, r.ssn = r.ssn,
              r.lg = r.lg, f.ssn = f.ssn, bday = bday, 
              place = Place, bats = Bats, throws = Throws, 

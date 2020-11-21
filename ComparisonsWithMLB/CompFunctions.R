@@ -56,7 +56,7 @@ comp.bat <- function(d){
   OPS <- SLG + OBP 
   data.frame(Plyr = d$playerID, YR = d$yearID, LG = d$lgID, TM = d$teamID, G = d$G,PA = PA, AB = d$AB, H=d$H, 
              X2B= d$X2B, X3B = d$X3B, HR= d$HR, BB=d$BB, HBP = d$HBP,SB=d$SB, CS=d$CS,
-             SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS, birth.yr = d$birth.yr)
+             SH=d$SH, SF=d$SF, BA = BA, SLG=SLG, OBP=OBP, OPS=OPS)#, birth.yr = d$birth.yr)
 }
 
 #Find the number of seasons and number of observations for each player in a data frame.  
@@ -77,6 +77,53 @@ player.bios <- function(d){
   birth.yr <- d$birth.yr[1]
   data.frame(n.obs = n.obs, n.ssns = n.ssns, r.ssn = r.ssn,
              r.lg = r.lg, birth.yr = birth.yr, f.ssn = f.ssn)
+}
+
+#Get player info from observations off baseball cube's D1 data
+college.bios <- function(d){
+  n.obs <- length(d$year);  n.ssns <- length(unique(d$year))
+  r.ssn <- min(d$year);  f.ssn <- max(d$year)
+  season1 <- d[d$year == r.ssn,]
+  r.tm <- season1$teamName[which.max(season1$AB)]
+  r.lg <- season1$LeagueAbbr[which.max(season1$AB)]
+  seasonf <- d[d$year == f.ssn,]
+  f.tm <- seasonf$teamName[which.max(seasonf$AB)]
+  f.lg <- seasonf$LeagueAbbr[which.max(seasonf$AB)]
+  n.tm <- length(unique(d$teamName))
+  bday <- d$borndate[1]; place <- d$Place[1]
+  bats <- d$Bats[1]; throws <- d$Throws[1]; posit <- d$posit[1]
+  draft.yr <- d$draft_year[1]; draft.rd <- d$draft_Round[1]
+  draft.overall <- d$draft_overall[1]; draft.tm <- d$Draft_Team[1]
+  mlbid <- d$mlbid[1]
+  data.frame(n.obs = n.obs, n.ssns = n.ssns, r.ssn = r.ssn, r.tm = r.tm,
+             r.lg = r.lg, f.ssn = f.ssn, f.tm = f.tm, f.lg = f.lg, n.tm = n.tm,
+             bday = bday, place = place, bats = bats, throws = throws,
+             posit = posit, draft.yr = draft.yr, draft.rd = draft.rd,
+             draft.overall = draft.overall, draft.tm = draft.tm, mlbid = mlbid)
+}
+
+#Get player info from observations off baseball cube's summer data
+summer.bios <- function(d){
+  n.obs.summer <- length(d$year);  n.ssns.summer <- length(unique(d$year))
+  r.ssn.summer <- min(d$year);  f.ssn.summer <- max(d$year)
+  season1 <- d[d$year == r.ssn.summer,]
+  school <- d$school[1]
+  r.tm.summer <- season1$teamName[which.max(season1$AB)]
+  r.lg.summer <- season1$LeagueName[which.max(season1$AB)]
+  seasonf <- d[d$year == f.ssn.summer,]
+  f.tm.summer <- seasonf$teamName[which.max(seasonf$AB)]
+  f.lg.summer <- seasonf$LeagueName[which.max(seasonf$AB)]
+  bday <- d$borndate[1]; place <- d$place[1]
+  bats <- d$Bats[1]; throws <- d$Throws[1]; posit <- d$posit[1]
+  draft.yr <- d$draft_Year[1]; draft.rd <- d$draft_Round[1]
+  draft.overall <- d$draft_overall[1]; draft.tm.abbr <- d$draft_teamabbr[1]
+  status <- d$status[1]; current.tm <- d$CurrentTeam[1]
+  data.frame(n.obs.summer = n.obs.summer, n.ssns.summer = n.ssns.summer, r.ssn.summer = r.ssn.summer, r.tm.summer = r.tm.summer,
+             r.lg.summer = r.lg.summer, f.ssn.summer = f.ssn.summer, f.tm.summer = f.tm.summer, f.lg.summer = f.lg.summer, 
+             school = school, bday = bday, place = place, bats = bats, throws = throws,
+             posit = posit, draft.yr = draft.yr, draft.rd = draft.rd,
+             draft.overall = draft.overall, draft.tm.abbr = draft.tm,
+             status = status, current.tm = current.tm)
 }
 
 #confidence interval for lm

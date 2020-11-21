@@ -1,0 +1,186 @@
+level,playerid,year,teamName,LeagueName,lastname,firstname,G,AB,R,H,Dbl,Tpl,HR,RBI,SB,CS,BB,IBB,SO,SH,SF,HBP,GDP,Bavg,Slg,obp,OPS,Age,HT,WT,Bats,Throws,posit,borndate,place,colleges,draft_Year,draft_Round,draft_overall,draft_teamabbr,status,teamname,CurrentTeam,X,check
+1,PTaylo8,2009,Hyannis Mets,Cape Cod League,Taylor,Patrick,1,2,0,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0.5,0.5,0.667,1.167,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,PTaylo8,2019,Brookhaven Bucks,Sun Belt League,Taylor,Patrick,29,103,21,26,5,0,1,12,6,2,9,0,21,2,1,9,2,0.252,0.33,0.361,0.691,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,CAllen107,2010,Asheville Redbirds,Southern Collegiate League,Allen,Chris,38,113,15,31,1,0,0,9,6,2,15,0,14,0,0,3,3,0.274,0.283,0.374,0.657,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,CAllen107,2015,Derby Twins,Jayhawk League,Allen,Chris,18,56,9,11,2,0,0,5,0,1,7,0,19,0,0,6,0,0.196,0.232,0.348,0.58,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TFishe141,2010,AC Nitros,New York Collegiate,Fisher,Tyler,36,142,30,52,15,0,5,25,4,2,16,0,19,3,0,4,0,0.366,0.577,0,0.577,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TFishe141,2017,SoCal Catch,California Collegiate League,Fisher,Tyler,27,71,6,17,5,0,1,6,0,0,14,0,24,0,1,2,2,0.239,0.352,0.375,0.727,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JDiaz204,2010,North Jersey Eagles,Atlantic Collegiate,Diaz,Jose,32,115,10,17,2,0,0,6,4,0,6,0,27,0,0,1,0,0.148,0.165,0,0.165,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JDiaz204,2019,Victoria Generals,Texas Collegiate League,Diaz,Jose,22,68,12,16,3,0,0,8,19,1,9,0,17,0,0,4,0,0.235,0.279,0,0.279,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AJacks226,2010,DeLand Suns,Florida Collegiate League,Jackson,Austin,31,105,8,22,1,0,0,6,2,2,9,0,29,1,0,1,2,0.21,0.219,0.278,0.497,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AJacks226,2011,DeLand Suns,Florida Collegiate League,Jackson,Austin,23,66,8,10,1,0,0,2,2,0,10,0,21,0,0,0,3,0.152,0.167,0.263,0.43,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AJacks226,2012,DeLand Suns,Florida Collegiate League,Jackson,Austin,15,29,2,8,0,0,0,4,1,0,4,0,9,0,0,1,0,0.276,0.276,0.382,0.658,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,AJacks226,2018,Geneva Red Wings,Perfect Game League,Jackson,Austin,20,64,11,22,2,1,0,8,0,0,6,0,11,1,1,6,0,0.344,0.406,0.442,0.848,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JBrook273,2010,SM Packers,California Collegiate League,Brooks,James,29,119,17,36,10,0,2,20,13,2,15,0,35,0,1,0,0,0.303,0.437,0.378,0.815,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JBrook273,2018,Kelowna Falcons,West Coast League,Brooks,James,2,4,1,1,0,0,0,0,0,0,0,0,3,1,0,0,0,0.25,0.25,0.25,0.5,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AWilli386,2010,Mac-N-Seitz,MINK League,Williams,Austin,23,77,6,19,6,0,1,2,0,0,7,0,16,0,0,0,2,0.247,0.364,0.31,0.674,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AWilli386,2011,Nevada Griffons,MINK League,Williams,Austin,26,86,19,21,8,0,2,13,1,0,13,0,16,5,1,3,2,0.244,0.407,0.359,0.766,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,AWilli386,2019,Cape Catfish,Prospect League,Williams,Austin,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MMorga433,2010,Carolina Stingers,Southern Collegiate League,Morgan,Michael,20,62,11,15,3,1,0,6,2,0,8,0,13,0,0,0,3,0.242,0.323,0.329,0.652,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MMorga433,2011,Niagara Power,New York Collegiate,Morgan,Michael,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MMorga433,2017,Haysville Aviators,Jayhawk League,Morgan,Michael,24,61,13,18,3,0,1,8,6,2,17,0,13,3,0,1,0,0.295,0.393,0.456,0.849,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MMorga433,2018,North Fork Ospreys,Hamptons League,Morgan,Michael,1,3,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0.25,0.25,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RWilli435,2010,New Market Rebels,Valley League,Williams,Ryan,20,63,3,11,1,1,1,4,1,1,8,0,22,0,1,2,1,0.175,0.27,0.284,0.554,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RWilli435,2011,North Fork Ospreys,Atlantic Collegiate,Williams,Ryan,32,100,14,27,2,0,4,19,5,0,16,0,23,0,0,4,0,0.27,0.41,0,0.41,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RWilli435,2011,Niagara Power,New York Collegiate,Williams,Ryan,43,144,22,43,8,2,0,10,11,3,19,0,22,2,0,3,2,0.299,0.382,0.392,0.774,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,RWilli435,2017,Anchorage Bucs,Alaska Summer League,Williams,Ryan,29,88,7,19,5,1,1,16,4,0,9,0,30,0,4,1,2,0.216,0.33,0.284,0.614,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,RWilli435,2018,San Diego Force,Southern California League,Williams,Ryan,26,77,13,14,5,0,2,12,10,1,13,0,25,1,1,4,2,0.182,0.325,0.326,0.651,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,RWilli435,2018,Inland Valley Pirates,Southern California League,Williams,Ryan,17,58,8,18,2,0,0,5,3,2,9,0,8,0,0,4,2,0.31,0.345,0.437,0.782,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,RWilli435,2019,San Diego Force,Southern California League,Williams,Ryan,37,140,25,37,10,3,1,32,17,2,14,0,29,3,5,4,0,0.264,0.4,0.337,0.737,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,RWilli435,2019,SoCal Stros,Southern California League,Williams,Ryan,21,79,19,27,4,0,0,6,2,2,13,0,19,0,1,2,0,0.342,0.392,0.442,0.834,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TJohns515,2010,Spartanburg Blue Eagles,Southern Collegiate League,Johnson,Taylor,15,40,6,6,3,0,0,2,0,0,4,0,8,0,0,0,1,0.15,0.225,0.227,0.452,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TJohns515,2019,Peninsula Oilers,Alaska Summer League,Johnson,Taylor,3,7,1,0,0,0,0,0,1,0,1,0,3,0,0,0,0,0,0,0.125,0.125,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MReyes539,2010,SM Packers,California Collegiate League,Reyes,Manny,13,37,4,6,0,0,1,2,0,0,7,0,15,0,0,0,1,0.162,0.243,0.295,0.538,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MReyes539,2019,Purcellville Cannons,Valley League,Reyes,Manny,6,14,1,3,0,0,0,2,0,0,1,0,6,0,0,0,1,0.214,0.214,0.267,0.481,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JMarti545,2010,Lexington Hustlers,Great Lakes Collegiate League,Martin,Jake,13,56,7,13,1,0,0,1,2,2,3,0,4,1,0,0,1,0.232,0.25,0.271,0.521,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JMarti545,2017,Marthas Vineyard Sharks,Futures League,Martin,Jake,38,123,32,30,6,0,4,20,7,1,20,0,43,1,2,0,2,0.244,0.39,0.345,0.735,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AAsche566,2010,Clarinda As,MINK League,Ascherl,Austin,12,29,3,5,0,0,0,2,0,0,5,0,3,0,0,1,0,0.172,0.172,0.314,0.486,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AAsche566,2012,Clarinda As,MINK League,Ascherl,Austin,15,39,2,7,1,0,0,4,0,0,6,0,10,2,0,1,0,0.179,0.205,0.304,0.509,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AAsche566,2013,Clarinda As,MINK League,Ascherl,Austin,31,93,9,25,1,0,0,8,0,1,10,0,13,7,0,2,2,0.269,0.28,0.352,0.632,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AAsche566,2015,Clarinda As,MINK League,Ascherl,Austin,2,6,1,1,1,0,0,0,0,0,2,0,1,0,0,1,0,0.167,0.333,0.444,0.777,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RMoore578,2010,Santa Barbara Foresters,California Collegiate League,Moore,Riley,11,19,3,7,2,0,0,4,0,0,4,0,5,1,0,2,0,0.368,0.474,0.52,0.994,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RMoore578,2016,Kelowna Falcons,West Coast League,Moore,Riley,1,3,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0.333,0.333,0.333,0.666,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,HSmith600,2010,DeLand Suns,Florida Collegiate League,Smith,Hunter,10,36,2,8,0,0,0,3,0,0,6,0,12,0,0,1,0,0.222,0.222,0.349,0.571,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,HSmith600,2019,Richmond Jazz,Great Lakes Collegiate League,Smith,Hunter,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JWilli717,2010,Fayetteville SwampDogs,Coastal Plain League,Williams,Jordan,5,13,1,1,0,0,0,0,0,0,1,0,6,1,0,0,0,0.077,0.077,0.143,0.22,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JWilli717,2017,Neptune Beach Pearl,California Collegiate League,Williams,Jordan,39,147,32,51,10,1,1,22,15,4,12,0,10,1,1,2,4,0.347,0.449,0.401,0.85,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,JWilli717,2019,Liberal Bee Jays,Kansas Collegiate League,Williams,Jordan,34,119,28,37,4,0,1,18,0,2,29,0,14,1,2,1,0,0.311,0.37,0.444,0.814,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,Lewis765,2010,Anchorage Glacier Pilots,Alaska Summer League,Lewis,,3,5,0,1,0,0,0,0,0,0,4,0,2,0,0,1,0,0.2,0.2,0.6,0.8,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,Lewis765,2016,Bethany Bulls,Jayhawk League,Lewis,,1,5,1,2,0,0,0,1,0,0,0,0,1,0,0,0,0,0.4,0.4,0.4,0.8,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TJones816,2010,Stark County Terriers,Great Lakes Collegiate League,Jones,Tyler,2,3,0,0,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0,0.25,0.25,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TJones816,2017,Morehead City Marlins,Coastal Plain League,Jones,Tyler,7,8,1,0,0,0,0,0,0,0,1,0,2,0,0,0,0,0,0,0.111,0.111,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TJones816,2018,Edenton Steamers,Coastal Plain League,Jones,Tyler,31,89,14,23,2,0,0,6,1,0,9,0,22,7,2,2,3,0.258,0.281,0.333,0.614,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,THamil817,2010,Oahu Paddlers,Hawaii Collegiate League,Hamilton,Tyler,2,2,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0.5,0.5,0.5,1,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,THamil817,2015,Corvallis Knights,West Coast League,Hamilton,Tyler,6,10,0,2,0,0,0,0,0,0,0,0,2,1,0,1,0,0.2,0.2,0.273,0.473,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MJacks828,2010,Niagara Power,New York Collegiate,Jackson,Matt,2,5,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0.2,0.2,0,0.2,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MJacks828,2016,Rochester Ridgemen,New York Collegiate,Jackson,Matt,34,94,8,26,4,0,1,12,0,0,12,0,19,0,2,6,6,0.277,0.351,0.386,0.737,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,SMurph837,2010,Kelowna Falcons,West Coast League,Murphy,Sean,2,2,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0.5,1,0.5,1.5,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,SMurph837,2019,Westfield Starfires,Futures League,Murphy,Sean,38,114,12,32,4,0,3,18,1,0,12,0,32,1,1,2,4,0.281,0.395,0.357,0.752,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BJohns844,2010,Matsu Miners,Alaska Summer League,Johnson,Brandon,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BJohns844,2011,Covington Jacks,Valley League,Johnson,Brandon,2,4,1,0,0,0,0,0,1,0,1,0,2,0,0,0,0,0,0,0.2,0.2,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,BJohns844,2017,So Cal Bombers,Southern California League,Johnson,Brandon,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0.5,0.5,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,KWilli932,2010,AC Nitros,New York Collegiate,Williams,Kyle,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,KWilli932,2018,Yuba Sutter Gold Sox,Great West League,Williams,Kyle,5,19,1,4,1,0,0,2,0,2,3,0,5,0,0,0,0,0.211,0.263,0.318,0.581,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,PGarci955,2010,Derby Twins,Jayhawk League,Garcia,P.J.,0,78,0,25,4,0,7,12,0,0,0,0,0,0,0,0,0,0.321,0.641,0,0.641,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,PGarci955,2011,Haysville Heat,Jayhawk League,Garcia,P.J.,0,115,0,34,10,0,1,23,0,0,0,0,0,0,0,0,0,0.296,0.409,0,0.409,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,PGarci955,2014,Winter Garden Squeeze,Florida Collegiate League,Garcia,P.J.,16,38,5,8,0,0,0,2,0,1,2,0,3,3,0,0,0,0.211,0.211,0.25,0.461,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,PGarci955,2015,Winter Garden Squeeze,Florida Collegiate League,Garcia,P.J.,28,87,6,19,0,0,0,3,2,2,6,0,17,4,0,2,0,0.218,0.218,0.284,0.502,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,NGarci1005,2011,Glendale Angelenos,California Collegiate League,Garcia,Nick,29,73,13,21,6,0,1,9,7,2,10,0,12,2,0,0,0,0.288,0.411,0.373,0.784,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,NGarci1005,2018,Onondaga Flames,New York Collegiate,Garcia,Nick,16,36,9,13,2,1,0,3,2,0,7,0,12,0,0,0,0,0.361,0.472,0.465,0.937,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JRamir1015,2011,Gastonia Grizzlies,Coastal Plain League,Ramirez,Joe,36,125,16,32,4,0,2,11,5,1,9,0,23,4,1,0,0,0.256,0.336,0.304,0.64,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JRamir1015,2019,SoCal Stros,Southern California League,Ramirez,Joe,23,64,7,11,4,0,0,4,0,0,11,0,20,0,0,2,0,0.172,0.234,0.312,0.546,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BJohns1049,2011,Woodstock Bandits,Valley League,Johnson,Bobby,40,154,15,40,5,2,1,22,1,2,13,0,32,1,1,4,1,0.26,0.338,0.331,0.669,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,BJohns1049,2018,Southern Ohio Copperheads,Great Lakes Collegiate League,Johnson,Bobby,15,51,11,11,2,0,0,8,0,0,5,0,8,0,0,4,3,0.216,0.255,0.333,0.588,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,CMorri1150,2011,Riverhead Tomcats,Atlantic Collegiate,Morris,Chase,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,CMorri1150,2016,Texas Marshals,Texas Collegiate League,Morris,Chase,2,7,0,0,0,0,0,0,0,0,0,0,3,0,0,0,1,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,CMorri1150,2017,Texas Marshals,Texas Collegiate League,Morris,Chase,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MWhite1206,2011,Alaska Fire,Alaska Summer League,White,Michael,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MWhite1206,2013,High Point-Thomasville HiToms,Coastal Plain League,White,Michael,26,86,16,27,5,0,4,12,5,1,8,0,20,0,0,3,0,0.314,0.512,0.392,0.904,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MWhite1206,2017,Oneonta Outlaws,Perfect Game League,White,Michael,1,2,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MPerez1214,2011,Rockbridge Rapids,Valley League,Perez,Mike,18,46,5,9,1,0,2,7,0,0,8,0,13,0,0,1,0,0.196,0.348,0.327,0.675,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MPerez1214,2018,Portland Pickles,West Coast League,Perez,Mike,41,146,32,35,9,0,5,20,2,2,14,0,25,2,3,4,2,0.24,0.404,0.317,0.721,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,ATaylo1268,2011,Niagara Power,New York Collegiate,Taylor,Adam,44,162,20,45,4,3,1,25,13,0,14,0,10,3,3,0,1,0.278,0.358,0.33,0.688,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,ATaylo1268,2012,Niagara Power,New York Collegiate,Taylor,Adam,40,148,31,47,4,5,4,28,14,3,12,0,26,1,3,3,2,0.318,0.493,0.373,0.866,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,ATaylo1268,2016,Corvallis Knights,West Coast League,Taylor,Adam,9,27,3,9,2,0,0,3,2,0,2,0,4,2,0,2,1,0.333,0.407,0.419,0.826,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,APerez1287,2011,Derby Twins,Jayhawk League,Perez,Andrew,0,84,0,23,5,0,2,11,0,0,0,0,0,0,0,0,0,0.274,0.405,0,0.405,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,APerez1287,2018,Lake Norman Copperheads,Southern Collegiate League,Perez,Andrew,11,35,6,9,0,0,0,3,0,0,3,0,13,0,0,1,1,0.257,0.257,0.333,0.59,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BEberl1297,2011,Clarinda As,MINK League,Eberly,Bryce,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BEberl1297,2013,Clarinda As,MINK League,Eberly,Bryce,4,3,1,1,0,0,0,0,0,0,1,0,2,0,0,0,0,0.333,0.333,0.5,0.833,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BEberl1297,2014,Clarinda As,MINK League,Eberly,Bryce,12,23,5,6,1,0,0,4,0,0,2,0,12,1,0,1,0,0.261,0.304,0.346,0.65,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BEberl1297,2015,Clarinda As,MINK League,Eberly,Bryce,11,34,3,4,0,0,0,1,0,0,3,0,20,2,0,0,0,0.118,0.118,0.189,0.307,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BEberl1297,2016,Clarinda As,MINK League,Eberly,Bryce,4,15,3,3,0,0,0,1,0,0,3,0,5,0,0,0,1,0.2,0.2,0.333,0.533,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,CRobin1356,2011,Rome Generals,New York Collegiate,Robinson,Chris,27,87,14,25,5,0,1,16,2,1,8,0,21,3,4,6,2,0.287,0.379,0.371,0.75,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,CRobin1356,2019,Haysville Aviators,Sunflower Collegiate League,Robinson,Chris,27,96,16,27,2,0,0,10,2,2,3,0,23,5,0,4,0,0.281,0.302,0.33,0.632,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,HBrown1447,2011,Mystic Schooners,New England Collegiate League,Brown,Hunter,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,HBrown1447,2017,St. Clair Green Giants,Great Lakes Collegiate League,Brown,Hunter,2,2,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JScott1467,2011,Xenia Scouts,Great Lakes Collegiate League,Scott,James,5,6,1,0,0,0,0,0,0,0,0,0,2,0,0,0,1,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JScott1467,2012,Woodstock Bandits,Valley League,Scott,James,5,17,1,2,0,0,0,0,0,0,1,0,10,0,0,0,0,0.118,0.118,0.167,0.285,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JScott1467,2014,Lake Erie Monarchs,Great Lakes Collegiate League,Scott,James,4,12,0,3,0,0,0,0,0,1,1,0,2,1,0,0,0,0.25,0.25,0.308,0.558,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JScott1467,2015,Lake Erie Monarchs,Great Lakes Collegiate League,Scott,James,5,11,0,2,0,0,0,2,0,0,2,0,2,0,0,0,1,0.182,0.182,0.308,0.49,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JScott1467,2017,Irish Hills Leprechauns,Great Lakes Collegiate League,Scott,James,39,123,23,29,4,0,0,16,4,0,25,0,37,3,2,4,2,0.236,0.268,0.377,0.645,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JJohns1513,2011,Morganton Aggies,Southern Collegiate League,Johnson,Justin,21,57,6,17,2,1,0,4,4,0,2,0,4,0,0,1,0,0.298,0.368,0.333,0.701,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JJohns1513,2012,Morganton Aggies,Southern Collegiate League,Johnson,Justin,20,48,10,9,2,0,0,4,0,1,4,0,9,2,1,4,0,0.188,0.229,0.298,0.527,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JJohns1513,2019,Alpharetta Aviators,Sun Belt League,Johnson,Justin,15,36,7,4,1,0,0,5,5,0,3,0,20,1,1,1,0,0.111,0.139,0.195,0.334,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,LVarga1573,2011,Alexandria Aces,Texas Collegiate League,Vargas,Luis,7,20,1,2,0,0,0,0,0,0,6,0,3,0,0,0,0,0.1,0.1,0.308,0.408,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,LVarga1573,2018,Victoria Generals,Texas Collegiate League,Vargas,Luis,40,147,26,46,7,3,3,22,8,3,19,0,24,1,1,4,4,0.313,0.463,0.404,0.867,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MThomp1581,2011,Xenia Scouts,Great Lakes Collegiate League,Thompson,Matt,37,127,17,37,9,1,2,25,2,4,18,0,18,1,1,3,3,0.291,0.425,0.389,0.814,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MThomp1581,2019,Inland Valley Pirates,Southern California League,Thompson,Matt,15,31,4,5,1,0,0,1,0,0,4,0,13,0,0,1,0,0.161,0.194,0.278,0.472,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MWilli1594,2011,St. Cloud River Bats,Northwoods League,Williams,Michael,12,45,5,11,1,0,0,3,0,0,4,0,11,0,0,1,2,0.244,0.267,0.32,0.587,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MWilli1594,2018,Victoria Generals,Texas Collegiate League,Williams,Michael,48,180,33,62,6,8,1,29,22,6,27,0,31,1,4,4,1,0.344,0.483,0.433,0.916,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RWilli1668,2011,Green Bay Bullfrogs,Northwoods League,Williams,Robert,7,15,2,3,1,0,0,2,0,0,4,0,6,0,0,0,1,0.2,0.267,0.368,0.635,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RWilli1668,2017,Baltimore Dodgers,Cal Ripken League,Williams,Robert,6,17,1,2,1,0,0,0,0,0,5,0,4,0,0,0,0,0.118,0.176,0.318,0.494,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JAnder1769,2012,Adirondack,New York Collegiate,Anderson,James,18,55,15,21,3,0,2,15,2,1,7,0,8,2,1,0,0,0.382,0.545,0.444,0.989,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JAnder1769,2018,Corvallis Knights,West Coast League,Anderson,James,4,5,0,2,1,0,0,0,0,0,1,0,1,0,0,0,0,0.4,0.6,0.5,1.1,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JAnder1769,2019,Corvallis Knights,West Coast League,Anderson,James,4,6,0,3,1,0,0,1,0,0,1,0,2,0,0,0,0,0.5,0.667,0.571,1.238,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,ZSmith1902,2012,Columbia Blowfish,Coastal Plain League,Smith,Zack,15,54,3,9,1,0,0,6,0,0,2,0,11,0,1,2,1,0.167,0.185,0.22,0.405,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,ZSmith1902,2013,Columbia Blowfish,Coastal Plain League,Smith,Zack,24,59,2,8,2,0,0,2,0,0,1,0,12,0,1,0,0,0.136,0.169,0.148,0.317,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,ZSmith1902,2017,Pittsfield Suns,Futures League,Smith,Zack,31,119,20,36,9,2,2,18,3,0,10,0,14,0,0,3,5,0.303,0.462,0.371,0.833,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,ZSmith1902,2019,Peninsula Pilots,Coastal Plain League,Smith,Zack,10,21,4,3,0,0,0,3,0,0,5,0,6,0,1,0,0,0.143,0.143,0.296,0.439,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RColli1959,2012,Gastonia Grizzlies,Coastal Plain League,Collins,Ryan,6,16,4,0,0,0,0,0,0,1,1,0,8,0,0,2,0,0,0,0.158,0.158,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RColli1959,2017,North Shore Navigators,Futures League,Collins,Ryan,11,35,1,5,1,0,0,2,1,1,2,0,9,0,1,0,3,0.143,0.171,0.184,0.355,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RColli1959,2018,Texarkana Twins,Texas Collegiate League,Collins,Ryan,1,4,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AMoore2006,2012,Hyannis Harbor Hawks,Cape Cod League,Moore,Adam,4,12,1,0,0,0,0,0,0,0,1,0,6,0,0,0,0,0,0,0.077,0.077,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AMoore2006,2013,Gastonia Grizzlies,Coastal Plain League,Moore,Adam,4,5,0,1,0,0,0,1,0,0,0,0,2,0,0,1,0,0.2,0.2,0.333,0.533,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,AMoore2006,2019,Olean Oilers,New York Collegiate,Moore,Adam,24,48,4,10,1,0,0,7,0,2,10,0,16,1,2,3,0,0.208,0.229,0.365,0.594,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JHerna2240,2012,Orlando Monarchs,Florida Collegiate League,Hernandez,Jose,11,26,2,6,1,0,0,0,2,0,1,0,5,1,0,0,0,0.231,0.269,0.259,0.528,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JHerna2240,2019,Front Royal Cardinals,Valley League,Hernandez,Jose,25,88,11,24,4,0,1,4,1,2,3,0,36,5,0,3,1,0.273,0.352,0.319,0.671,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,RPriet2252,2012,Ozark Generals,MINK League,Prieto,Robert,42,149,29,55,5,1,2,23,20,3,11,0,8,0,2,3,4,0.369,0.456,0.418,0.874,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,RPriet2252,2013,Ozark Generals,MINK League,Prieto,Robert,44,150,26,58,8,0,3,19,7,2,18,0,12,2,1,5,6,0.387,0.5,0.466,0.966,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,RPriet2252,2014,Sedalia Bombers,MINK League,Prieto,Robert,37,98,17,21,2,1,0,13,5,1,27,0,20,3,4,0,2,0.214,0.255,0.372,0.627,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,RPriet2252,2014,Ozark Generals,MINK League,Prieto,Robert,35,118,12,31,6,0,1,13,3,5,4,0,8,2,0,0,5,0.263,0.339,0.287,0.626,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,RPriet2252,2015,Ozark Generals,MINK League,Prieto,Robert,19,70,12,30,2,0,2,12,3,0,5,0,4,1,1,0,4,0.429,0.543,0.461,1.004,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,RPriet2252,2017,Ozark Generals,MINK League,Prieto,Robert,1,3,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0.333,0.333,0.333,0.666,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RJones2305,2012,Rockbridge Rapids,Valley League,Jones,Ryan,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RJones2305,2013,Gastonia Grizzlies,Coastal Plain League,Jones,Ryan,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RJones2305,2017,Haysville Aviators,Jayhawk League,Jones,Ryan,24,70,7,11,1,1,0,1,2,1,2,0,20,1,0,0,0,0.157,0.2,0.181,0.381,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RJones2305,2018,Lake Norman Copperheads,Southern Collegiate League,Jones,Ryan,17,48,4,8,2,0,0,1,0,0,6,0,25,0,0,1,0,0.167,0.208,0.273,0.481,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,BHamil2328,2012,Sherrill Silversmiths,New York Collegiate,Hamilton,Brian,2,5,0,0,0,0,0,1,0,0,0,0,1,0,0,1,1,0,0,0.167,0.167,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,BHamil2328,2019,Texarkana Twins,Texas Collegiate League,Hamilton,Brian,10,31,1,3,0,0,0,4,2,0,0,0,15,0,0,1,0,0.097,0.097,0,0.097,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JBaker2355,2012,St. Josephs Mustangs,MINK League,Baker,Josh,8,14,3,4,0,0,0,4,0,0,3,0,3,0,0,0,0,0.286,0.286,0.412,0.698,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JBaker2355,2013,Ozark Generals,MINK League,Baker,Josh,30,75,12,17,0,0,0,11,2,0,8,0,20,3,1,1,3,0.227,0.227,0.306,0.533,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JBaker2355,2014,Ozark Generals,MINK League,Baker,Josh,2,4,0,0,0,0,0,0,0,0,1,0,3,0,0,0,0,0,0,0.2,0.2,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JBaker2355,2019,High Point-Thomasville HiToms,Coastal Plain League,Baker,Josh,35,113,20,28,6,1,6,25,0,1,23,0,38,1,3,1,3,0.248,0.478,0.371,0.849,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,AFlore2403,2012,Trenton Generals,Atlantic Collegiate,Flores,Anthony,22,39,12,11,1,0,1,5,6,2,10,0,10,0,0,1,0,0.282,0.385,0,0.385,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,AFlore2403,2018,Brazos Valley Bombers,Texas Collegiate League,Flores,Anthony,3,13,1,4,1,0,0,0,0,0,0,0,2,0,0,0,0,0.308,0.385,0.308,0.693,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,LAllen2454,2012,Willmar Stingers,Northwoods League,Allen,Logan,15,48,12,9,1,0,0,2,5,1,7,0,7,1,1,3,2,0.188,0.208,0.322,0.53,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,LAllen2454,2018,New Bedford Bay Sox,New England Collegiate League,Allen,Logan,12,41,4,10,3,1,0,8,3,0,5,0,10,0,1,1,1,0.244,0.366,0.333,0.699,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,CAmato2544,2013,Trenton Generals,Atlantic Collegiate,Amato,Chris,19,31,7,4,0,0,0,2,2,0,5,0,9,0,0,2,1,0.129,0.129,0.289,0.418,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,CAmato2544,2014,Staten Island Tide,Atlantic Collegiate,Amato,Chris,16,36,3,8,0,0,0,1,3,3,1,0,8,0,0,1,0,0.222,0.222,0.263,0.485,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,CAmato2544,2019,North Fork Ospreys,Hamptons League,Amato,Chris,2,4,1,0,0,0,0,0,0,0,1,0,3,0,0,0,0,0,0,0.2,0.2,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JKelly2561,2013,Bakersfield Sound,California Collegiate League,Kelly,Justin,1,2,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0.5,0.5,0,0.5,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,JKelly2561,2016,Irish Hills Leprechauns,Great Lakes Collegiate League,Kelly,Justin,27,90,17,26,6,0,2,21,3,2,12,0,19,0,4,4,4,0.289,0.422,0.382,0.804,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,JKelly2561,2018,Alexandria Aces,Cal Ripken League,Kelly,Justin,31,109,17,25,7,0,3,16,4,1,15,0,34,0,0,0,2,0.229,0.376,0.323,0.699,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,JRamir2587,2013,SLO Blues,California Collegiate League,Ramirez,Josh,6,16,5,4,1,0,0,2,1,0,5,0,4,0,0,0,0,0.25,0.313,0,0.313,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,JRamir2587,2015,SLO Blues,California Collegiate League,Ramirez,Josh,8,21,4,6,0,0,0,5,1,2,2,0,5,3,1,1,0,0.286,0.286,0.36,0.646,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,JRamir2587,2016,SLO Blues,California Collegiate League,Ramirez,Josh,22,64,5,16,1,0,0,9,0,0,2,0,15,2,2,1,2,0.25,0.266,0.275,0.541,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,JRamir2587,2016,SLO Blues,California Collegiate League,Ramirez,Josh,1,5,0,1,0,0,0,0,0,0,0,0,2,0,0,0,0,0.2,0.2,0.2,0.4,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+ ,JRamir2587,2018,SLO Blues,California Collegiate League,Ramirez,Josh,7,15,3,4,3,0,0,7,0,0,4,0,2,1,1,1,1,0.267,0.467,0.429,0.896,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TBrown2592,2013,Alexandria Aces,Cal Ripken League,Brown,Tyler,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TBrown2592,2015,Harrisonburg Turks,Valley League,Brown,Tyler,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,TBrown2592,2018,Texas Marshals,Texas Collegiate League,Brown,Tyler,3,12,1,1,0,0,0,0,0,0,1,0,1,0,0,0,0,0.083,0.083,0.154,0.237,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,TBrown2592,2019,McPherson Pipeliners,Kansas Collegiate League,Brown,Tyler,34,119,18,43,9,0,2,21,1,0,11,0,24,0,0,4,1,0.361,0.487,0.433,0.92,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,RSmith2706,2013,Leesburg Lightning,Florida Collegiate League,Smith,Ryan,10,27,3,3,1,0,0,2,0,0,2,0,14,0,0,3,0,0.111,0.148,0.25,0.398,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RSmith2706,2013,Clarinda As,MINK League,Smith,Ryan,3,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,RSmith2706,2014,Clarinda As,MINK League,Smith,Ryan,2,2,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,RSmith2706,2015,Statesville Owls,Southern Collegiate League,Smith,Ryan,14,38,3,8,1,0,0,3,4,0,3,0,6,2,0,0,2,0.211,0.237,0.268,0.505,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+4,RSmith2706,2016,Peninsula Oilers,Alaska Summer League,Smith,Ryan,6,17,3,3,1,0,0,1,0,0,0,0,5,1,0,0,0,0.176,0.235,0.176,0.411,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+4,RSmith2706,2017,Peninsula Oilers,Alaska Summer League,Smith,Ryan,38,110,7,20,6,1,2,9,4,1,9,0,33,0,1,6,2,0.182,0.309,0.278,0.587,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,RSmith2706,2018,Lake Norman Copperheads,Southern Collegiate League,Smith,Ryan,2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JPeter2748,2013,Southern Ohio Copperheads,Great Lakes Collegiate League,Peterson,Jaret,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,JPeter2748,2017,Lorain County Ironmen,Great Lakes Collegiate League,Peterson,Jaret,26,88,12,22,5,0,0,14,1,0,19,0,23,0,1,2,4,0.25,0.307,0.391,0.698,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,JPeter2748,2018,Piedmont Pride,Southern Collegiate League,Peterson,Jaret,20,52,15,11,1,0,1,6,3,3,19,0,17,0,1,4,1,0.212,0.288,0.447,0.735,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MTurne2781,2013,Joplin Outlaws,MINK League,Turner,Matt,33,107,17,33,6,0,0,18,11,4,12,0,18,1,0,9,1,0.308,0.364,0.422,0.786,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,MTurne2781,2014,Joplin Outlaws,MINK League,Turner,Matt,40,141,21,40,7,2,0,10,14,0,10,0,21,3,2,3,3,0.284,0.362,0.34,0.702,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,MTurne2781,2019,Victoria HarbourCats,West Coast League,Turner,Matt,13,43,7,10,2,1,1,6,3,0,5,0,16,0,1,0,1,0.233,0.395,0.306,0.701,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TAdams2874,2013,Wisconsin Woodchucks,Northwoods League,Adams,Tyler,19,53,7,12,1,0,0,4,4,0,4,0,11,2,0,1,0,0.226,0.245,0.293,0.538,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TAdams2874,2017,Sunbelt Patriots,Sun Belt League,Adams,Tyler,27,80,17,26,7,0,4,13,6,1,4,0,16,0,1,4,4,0.325,0.563,0.382,0.945,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TAdams2874,2018,Peninsula Pilots,Coastal Plain League,Adams,Tyler,38,131,30,34,7,1,6,24,10,5,19,0,34,2,1,8,3,0.26,0.466,0.384,0.85,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,CCrawf3378,2014,Oneonta Outlaws,New York Collegiate,Crawford,Cameron,4,11,2,4,0,0,0,2,1,1,1,0,3,0,0,0,0,0.364,0.364,0.417,0.781,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,CCrawf3378,2019,Baton Rouge Rougarou,Texas Collegiate League,Crawford,Cameron,12,33,5,7,1,0,0,1,3,0,6,0,12,0,0,5,0,0.212,0.242,0,0.242,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,CCrawf3378,2019,Baton Rouge Rougarou,Texas Collegiate League,Crawford,Cameron,2,8,1,4,1,0,0,1,1,0,0,0,2,0,0,1,0,0.5,0.625,0,0.625,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TJohns3552,2014,Youses Orioles,Cal Ripken League,Johnson,Tyler,23,61,4,6,1,0,0,2,0,0,12,0,21,3,1,1,1,0.098,0.115,0.253,0.368,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+2,TJohns3552,2015,Joplin Outlaws,MINK League,Johnson,Tyler,31,113,15,32,7,0,0,8,6,1,15,0,15,0,1,5,2,0.283,0.345,0.388,0.733,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TJohns3552,2015,Wisconsin Rapids Rafters,Northwoods League,Johnson,Tyler,13,26,2,3,1,0,0,0,1,0,5,0,11,1,0,0,2,0.115,0.154,0.258,0.412,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+1,TJohns3552,2016,Silver Spring-Takoma T-Bolts,Cal Ripken League,Johnson,Tyler,7,22,1,3,0,0,0,0,0,0,4,0,6,0,0,0,1,0.136,0.136,0.269,0.405,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+3,TJohns3552,2016,Valley Blue Sox,New England Collegiate League,Johnson,Tyler,8,16,1,0,0,0,0,1,0,0,4,0,11,0,0,1,0,0,0,0.238,0.238,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
+4,TJohns3552,2019,Strasburg Express,Valley League,Johnson,Tyler,36,125,26,41,6,0,9,27,3,1,20,0,38,0,1,2,0,0.328,0.592,0.426,1.018,0,,0,,,,,"--,--",,0,0,0,,,,,NA,4
