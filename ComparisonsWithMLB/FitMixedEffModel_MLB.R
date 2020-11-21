@@ -34,9 +34,9 @@ summary(hit)
 #hit.2010$plyr.yr <- as.factor(paste(hit.2010$Plyr, hit.2010$YR, sep = "."))
 hit$lg.yr <- as.factor(paste(hit$LG, hit$YR, sep = "."))
 hit$YRf <- as.factor(hit$YR)
-hit <- hit[!is.na(hit$birth.yr + hit$OPS),]
-players <- ddply(hit, .(Plyr), player.bios)
-summary(players)
+#hit <- hit[!is.na(hit$birth.yr + hit$OPS),]
+#players <- ddply(hit, .(Plyr), player.bios)
+#summary(players)
 ############
 #Fit models with random player effects
 ############
@@ -71,6 +71,7 @@ df <- data.frame(cbind(hit$OPS, predict(mixed1), residuals(mixed1)))
 head(df)
 
 #Add an effect for the player's birth year
+hit$birth.yr <- get.birthyr(hit$Plyr)
 t0 <- Sys.time()
 mixed2 <-lmer(OPS ~ lg.yr + birth.yr + (1|Plyr), data = hit, weights = PAsc, REML = FALSE)
 tf <- Sys.time()
